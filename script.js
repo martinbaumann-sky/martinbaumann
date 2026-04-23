@@ -1,18 +1,48 @@
-const elements = document.querySelectorAll('.reveal');
+document.addEventListener("DOMContentLoaded", () => {
+  // Mouse Blob Follower
+  const blob = document.getElementById("cursor-blob");
+  if (blob) {
+    document.addEventListener("mousemove", (e) => {
+      const x = e.clientX;
+      const y = e.clientY;
+      blob.style.transform = `translate(${x - 200}px, ${y - 200}px)`;
+    });
+  }
 
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
+  // Parallax Effect
+  const handleScroll = () => {
+    const scroll = window.pageYOffset;
+
+    // Hero parallax
+    const parallaxTexts = document.querySelectorAll(".parallax-text");
+    parallaxTexts.forEach((text) => {
+      const speed = text.getAttribute("data-speed");
+      if (speed) {
+        text.style.transform = `translateX(${scroll * parseFloat(speed) * 0.1}px)`;
       }
     });
-  },
-  {
-    threshold: 0.12,
-  },
-);
+  };
+  
+  window.addEventListener("scroll", handleScroll);
 
-elements.forEach((el) => observer.observe(el));
+  // Smooth scrolling for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
+      const href = this.getAttribute("href");
+      if (href && href !== '#') {
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({
+            behavior: "smooth",
+          });
+        }
+      }
+    });
+  });
 
-document.getElementById('year').textContent = new Date().getFullYear();
+  // Current year setup
+  const year = new Date().getFullYear();
+  const yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = year;
+});
