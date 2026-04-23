@@ -1,0 +1,253 @@
+:root {
+  --bg: #f7f8fa;
+  --bg-soft: #ffffff;
+  --text: #111827;
+  --muted: #475467;
+  --line: #e4e7ec;
+  --primary: #111827;
+  --radius: 18px;
+  --shadow: 0 20px 50px -32px rgba(15, 23, 42, 0.3);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  background: radial-gradient(circle at 80% 20%, #eef2ff 0%, var(--bg) 34%, #f8fafc 100%);
+  color: var(--text);
+  line-height: 1.65;
+}
+
+.background-glow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 10% 5%, rgba(99, 102, 241, 0.16), transparent 38%);
+  z-index: -1;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem clamp(1rem, 4vw, 3rem);
+  backdrop-filter: blur(10px);
+  background-color: rgba(247, 248, 250, 0.65);
+  border-bottom: 1px solid rgba(228, 231, 236, 0.75);
+  z-index: 20;
+}
+
+.logo {
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+nav a,
+.cta-inline {
+  text-decoration: none;
+  color: var(--muted);
+  font-weight: 500;
+  transition: color 0.25s ease;
+}
+
+nav a:hover,
+.cta-inline:hover {
+  color: var(--text);
+}
+
+main {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 2rem clamp(1rem, 4vw, 3rem) 5rem;
+}
+
+.section {
+  margin: 2.5rem 0;
+  padding: clamp(1.25rem, 2vw, 2rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.75);
+  box-shadow: var(--shadow);
+}
+
+.hero {
+  margin-top: 0.8rem;
+}
+
+.eyebrow {
+  color: #344054;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(2rem, 7vw, 3.9rem);
+  letter-spacing: -0.04em;
+  max-width: 14ch;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 4vw, 2.1rem);
+  margin-bottom: 0.8rem;
+}
+
+.lead {
+  max-width: 52ch;
+  color: var(--muted);
+}
+
+.hero-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1.3rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.72rem 1.05rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn-ghost {
+  background: #eef2f7;
+  color: var(--text);
+}
+
+.social-grid,
+.project-grid,
+.metrics-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.social-grid {
+  grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
+  margin-top: 1.2rem;
+}
+
+.social-grid a {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--text);
+  padding: 0.8rem 0.95rem;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.project-grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.card {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+  padding: 1rem;
+}
+
+.card .tag {
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #475467;
+  margin: 0;
+}
+
+.card h3 {
+  margin-top: 0.25rem;
+}
+
+.card a {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.metrics-grid {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.metrics-grid article {
+  border-radius: 12px;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+.metric {
+  font-size: 2rem;
+  line-height: 1;
+  margin: 0;
+  font-weight: 800;
+}
+
+.contact {
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+  color: var(--muted);
+  padding: 0 1rem 2rem;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 650ms ease, transform 650ms ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 840px) {
+  .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav {
+    gap: 0.72rem;
+  }
+}
