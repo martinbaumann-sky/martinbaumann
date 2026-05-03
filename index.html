@@ -3,11 +3,64 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Martin Baumann — Portfolio</title>
+    <title>Martin Baumann | Emprendedor, Creador de Contenido e Ingeniero Comercial</title>
     <meta
       name="description"
-      content="Portfolio de Martin Baumann (@martinbaumann_): proyectos, métricas y contacto."
+      content="Portfolio de Martin Baumann. Ingeniero Comercial, Emprendedor y Creador de Contenido. Conoce mis proyectos como PichangApp, SkyEdits y SkyTerra, métricas y servicios."
     />
+    <meta name="keywords" content="Martin Baumann, Emprendedor, Creador de Contenido, Ingeniero Comercial, Desarrollo Web, Marketing Integral, Inteligencia Artificial, PichangApp, SkyEdits, SkyTerra" />
+    <meta name="author" content="Martin Baumann" />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Martin Baumann | Emprendedor y Creador de Contenido" />
+    <meta property="og:description" content="Portfolio de Martin Baumann. Ingeniero Comercial, Emprendedor y Creador de Contenido. Conoce mis proyectos, servicios y contactemos." />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Martin Baumann | Emprendedor y Creador de Contenido" />
+    <meta name="twitter:description" content="Portfolio de Martin Baumann. Ingeniero Comercial, Emprendedor y Creador de Contenido. Conoce mis proyectos, servicios y contactemos." />
+
+    <meta name="theme-color" content="#faf9f6" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- Schema.org para Persona y Organizaciones -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Martin Baumann",
+      "url": "https://martinbaumann.com",
+      "jobTitle": "Emprendedor, Creador de Contenido e Ingeniero Comercial",
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Universidad Adolfo Ibáñez"
+      },
+      "founder": [
+        {
+          "@type": "Organization",
+          "name": "PichangApp",
+          "url": "https://www.pichang.app"
+        },
+        {
+          "@type": "Organization",
+          "name": "SkyEdits",
+          "url": "https://www.skyedits.com"
+        },
+        {
+          "@type": "Organization",
+          "name": "SkyTerra",
+          "url": "https://www.skyterra.cl"
+        }
+      ],
+      "sameAs": [
+        "https://instagram.com/martinbaumann_",
+        "https://www.tiktok.com/@martinbaumann_",
+        "https://www.linkedin.com/in/martin-baumann-064b62186/"
+      ],
+      "knowsAbout": ["Emprendimiento", "Desarrollo Web", "Marketing Integral", "Inteligencia Artificial", "Negocios"]
+    }
+    </script>
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="styles.css?v=5" />
   </head>
@@ -17,33 +70,38 @@
     <nav>
       <a href="#hero" class="logo">MARTINBAUMANN</a>
       <ul class="nav-links">
-        <li><a href="#sobre-mi">Sobre mí</a></li>
-        <li><a href="#proyectos">Proyectos</a></li>
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#metricas">Métricas</a></li>
+        <li><a href="#metricas" title="Ver mis métricas y estadísticas">Métricas</a></li>
+        <li><a href="#proyectos" title="Explorar los proyectos y empresas que he fundado">Proyectos</a></li>
+        <li><a href="#servicios" title="Conoce los servicios que ofrezco para tu empresa">Servicios</a></li>
+        <li><a href="#sobre-mi" title="Lee más sobre mi historia y perfil profesional">Sobre mí</a></li>
       </ul>
-      <a href="https://instagram.com/martinbaumann_" target="_blank" rel="noreferrer" class="nav-cta">Hablemos!</a>
+      <a href="https://instagram.com/martinbaumann_" target="_blank" rel="noreferrer" class="nav-cta" title="Contáctame enviándome un mensaje directo">Hablemos!</a>
     </nav>
 
     <main>
       <!-- HERO SECTION -->
       <section id="hero">
-        <div class="hero-title-container container">
+        <h1 class="hero-title-container container" style="margin: 0; padding: 0; display: flex; flex-direction: column; align-items: center; text-align: center;">
           <span class="huge-type parallax-text" data-speed="-2">MARTIN</span>
           <span class="huge-type outline-text parallax-text" data-speed="2">BAUMANN</span>
-        </div>
+        </h1>
       </section>
 
-      <!-- INTRO -->
-      <section id="sobre-mi">
-        <div class="container">
-          <div style="max-width: 900px;">
-            <h2 style="font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1; font-family: var(--heading-font); margin-bottom: 40px; text-transform: uppercase; font-weight: 800; letter-spacing: -1px;">
-              Ingeniero Comercial, Creador de Contenido y Emprendedor.
-            </h2>
-            <p style="font-size: clamp(1.2rem, 3vw, 1.5rem); font-weight: 400; color: #555; line-height: 1.5;">
-              Tengo un Magíster en Marketing de la UAI y me dedico a construir proyectos. Decidí empezar a documentar mi camino como emprendedor en redes sociales para mostrar el verdadero detrás de escena, y hoy comparto mis procesos y aprendizajes con una comunidad de miles de personas que siguen el paso a paso.
-            </p>
+      <!-- METRICS SECTION -->
+      <section id="metricas" class="container" style="padding-top: 50px;">
+        <h2 style="font-family: var(--heading-font); font-size: clamp(2rem, 5vw, 3rem); text-transform: uppercase; font-weight: 800; letter-spacing: -1px;">Métricas</h2>
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <span class="huge-type">+<span class="counter" data-target="18">0</span>K</span>
+            <p>Seguidores en Instagram</p>
+          </div>
+          <div class="metric-card">
+            <span class="huge-type">+<span class="counter" data-target="14">0</span>K</span>
+            <p>Seguidores en TikTok</p>
+          </div>
+          <div class="metric-card">
+            <span class="huge-type"><span class="counter" data-target="3">0</span></span>
+            <p>Empresas Co-fundadas</p>
           </div>
         </div>
       </section>
@@ -61,7 +119,12 @@
             <div class="project-content">
               <h3 class="huge-type">PICHANGAPP</h3>
               <p><strong>Co-Founder.</strong> App que permite a jugadores de fútbol jugar dónde y cuándo quieran.</p>
-              <a href="https://www.pichang.app" target="_blank" rel="noreferrer">VISITAR ↗</a>
+              <div style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
+                <a href="https://www.pichang.app" target="_blank" rel="noreferrer" title="Visitar el sitio web oficial de PichangApp">VISITAR WEB ↗</a>
+                <a href="https://instagram.com/pichang.app" target="_blank" rel="noreferrer" style="border-bottom: none; padding-bottom: 0;" aria-label="Instagram de PichangApp">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+                </a>
+              </div>
             </div>
           </div>
 
@@ -73,7 +136,12 @@
             <div class="project-content">
               <h3 class="huge-type">SKYEDITS</h3>
               <p><strong>Co-Founder.</strong> Agencia de marketing y productora audiovisual.</p>
-              <a href="https://www.skyedits.com" target="_blank" rel="noreferrer">VISITAR ↗</a>
+              <div style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
+                <a href="https://www.skyedits.com" target="_blank" rel="noreferrer" title="Visitar el sitio web oficial de SkyEdits">VISITAR WEB ↗</a>
+                <a href="https://instagram.com/skyedits.cl" target="_blank" rel="noreferrer" style="border-bottom: none; padding-bottom: 0;" aria-label="Instagram de SkyEdits">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+                </a>
+              </div>
             </div>
           </div>
 
@@ -85,7 +153,12 @@
             <div class="project-content">
               <h3 class="huge-type">SKYTERRA</h3>
               <p><strong>Co-Founder.</strong> Portal inmobiliario enfocado a la compra-venta de terrenos rurales premium.</p>
-              <a href="https://www.skyterra.cl" target="_blank" rel="noreferrer">VISITAR ↗</a>
+              <div style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
+                <a href="https://www.skyterra.cl" target="_blank" rel="noreferrer" title="Visitar el sitio web oficial de SkyTerra">VISITAR WEB ↗</a>
+                <a href="https://instagram.com/skyterra.cl" target="_blank" rel="noreferrer" style="border-bottom: none; padding-bottom: 0;" aria-label="Instagram de SkyTerra">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -136,21 +209,16 @@
         </div>
       </section>
 
-      <!-- METRICS SECTION -->
-      <section id="metricas" class="container" style="padding-top: 50px;">
-        <h2 style="font-family: var(--heading-font); font-size: clamp(2rem, 5vw, 3rem); text-transform: uppercase; font-weight: 800; letter-spacing: -1px;">Métricas</h2>
-        <div class="metrics-grid">
-          <div class="metric-card">
-            <span class="huge-type">+<span class="counter" data-target="18">0</span>K</span>
-            <p>Seguidores en Instagram</p>
-          </div>
-          <div class="metric-card">
-            <span class="huge-type">+<span class="counter" data-target="14">0</span>K</span>
-            <p>Seguidores en TikTok</p>
-          </div>
-          <div class="metric-card">
-            <span class="huge-type"><span class="counter" data-target="3">0</span></span>
-            <p>Empresas Co-fundadas</p>
+      <!-- INTRO -->
+      <section id="sobre-mi" style="padding-top: 150px;">
+        <div class="container">
+          <div style="max-width: 900px; padding-top: 80px; border-top: 1px solid var(--gray);">
+            <h2 style="font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1; font-family: var(--heading-font); margin-bottom: 40px; text-transform: uppercase; font-weight: 800; letter-spacing: -1px;">
+              Construyendo proyectos y documentando el proceso.
+            </h2>
+            <p style="font-size: clamp(1.2rem, 3vw, 1.5rem); font-weight: 400; color: #555; line-height: 1.5;">
+              Soy Ingeniero Comercial apasionado por la creación de negocios digitales. Decidí empezar a documentar mi camino para mostrar el verdadero "detrás de escena" del emprendimiento, y hoy comparto mis aprendizajes y estrategias con una comunidad de miles de personas que siguen el paso a paso.
+            </p>
           </div>
         </div>
       </section>
@@ -160,7 +228,7 @@
         <div class="container">
           <div class="footer-cta">
             <p class="cta-subtitle">¿Tienes una idea en mente?</p>
-            <a href="https://instagram.com/martinbaumann_" target="_blank" rel="noreferrer" class="massive-text-cta">
+            <a href="https://instagram.com/martinbaumann_" target="_blank" rel="noreferrer" class="massive-text-cta" title="Enviar mensaje directo por Instagram a Martin Baumann">
               HABLEMOS <span class="arrow">↗</span>
             </a>
           </div>
@@ -168,9 +236,9 @@
           <div style="display: flex; justify-content: space-between; font-family: var(--heading-font); font-size: 0.8rem; text-transform: uppercase; color: #555; flex-wrap: wrap; gap: 20px; font-weight: 600;">
             <div>© <span id="year"></span> MARTIN BAUMANN</div>
             <div class="social-links">
-              <a href="https://instagram.com/martinbaumann_" target="_blank" rel="noreferrer">INSTAGRAM</a>
-              <a href="https://www.tiktok.com/@martinbaumann_" target="_blank" rel="noreferrer">TIKTOK</a>
-              <a href="https://www.linkedin.com/in/martin-baumann-064b62186/" target="_blank" rel="noreferrer">LINKEDIN</a>
+              <a href="https://instagram.com/martinbaumann_" target="_blank" rel="noreferrer" title="Perfil de Instagram de Martin Baumann">INSTAGRAM</a>
+              <a href="https://www.tiktok.com/@martinbaumann_" target="_blank" rel="noreferrer" title="Perfil de TikTok de Martin Baumann">TIKTOK</a>
+              <a href="https://www.linkedin.com/in/martin-baumann-064b62186/" target="_blank" rel="noreferrer" title="Perfil de LinkedIn de Martin Baumann">LINKEDIN</a>
             </div>
             <div>BUILDER // DIGITAL</div>
           </div>
