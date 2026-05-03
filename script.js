@@ -23,7 +23,34 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
   
-  window.addEventListener("scroll", handleScroll);
+  // Smart Header (Hide on scroll down, show on scroll up)
+  const nav = document.querySelector('nav');
+  let lastScrollY = window.scrollY;
+
+  const handleSmartHeader = () => {
+    const currentScrollY = window.scrollY;
+    
+    if (currentScrollY <= 50) {
+      // At the top
+      nav.classList.remove('nav-hidden');
+      nav.classList.remove('nav-scrolled');
+    } else if (currentScrollY > lastScrollY) {
+      // Scrolling down
+      nav.classList.add('nav-hidden');
+      nav.classList.remove('nav-scrolled');
+    } else {
+      // Scrolling up
+      nav.classList.remove('nav-hidden');
+      nav.classList.add('nav-scrolled');
+    }
+    
+    lastScrollY = currentScrollY;
+  };
+
+  window.addEventListener("scroll", () => {
+    handleScroll();
+    handleSmartHeader();
+  });
 
   // Smooth scrolling for anchor links
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
