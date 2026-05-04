@@ -211,13 +211,12 @@ nav.nav-scrolled {
   position: sticky;
   top: 15%;
   font-size: clamp(3rem, 10vw, 8rem);
-  line-height: 0.7;
-  opacity: 0.05;
+  line-height: 0.9;
+  opacity: 0.12;
   z-index: 0;
   pointer-events: none;
   font-family: var(--heading-font);
   font-weight: 800;
-  overflow: hidden;
 }
 
 footer {
@@ -325,22 +324,28 @@ footer {
   }
   nav {
     flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
     background: transparent;
     backdrop-filter: none;
-    padding: 20px;
+    padding: 15px;
   }
   .nav-links {
-    gap: 20px;
+    gap: 10px;
+    justify-content: flex-start;
   }
   .nav-links a {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
   }
   .nav-cta {
-    padding: 8px 20px;
-    font-size: 0.8rem;
+    padding: 8px 15px;
+    font-size: 0.75rem;
+    white-space: nowrap;
+  }
+  .blob {
+    display: none !important;
   }
   .huge-type {
     font-size: clamp(2.5rem, 12vw, 8rem);
