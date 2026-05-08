@@ -21,6 +21,12 @@ document.addEventListener("DOMContentLoaded", () => {
         text.style.transform = `translateX(${scroll * parseFloat(speed) * 0.1}px)`;
       }
     });
+
+    // Fade out profile picture on scroll
+    const profilePic = document.querySelector(".profile-pic-container");
+    if (profilePic) {
+      profilePic.style.opacity = Math.max(0, 1 - scroll / 300);
+    }
   };
   
   // Smart Header (Hide on scroll down, show on scroll up)
