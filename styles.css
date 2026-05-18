@@ -446,6 +446,7 @@ footer {
   font-size: clamp(4rem, 10vw, 6rem);
   display: block;
   margin-bottom: 0.5rem;
+  white-space: nowrap;
 }
 
 .metric-card p {
