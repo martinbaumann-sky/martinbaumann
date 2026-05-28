@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guía de Idea a MVP con IA | Martin Baumann</title>
+    <meta
+      name="description"
+      content="Guía gratuita de Martin Baumann para pasar de un problema real a un MVP validable usando IA, sin partir programando a ciegas."
+    />
+    <meta name="author" content="Martin Baumann" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#faf9f6" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css?v=15" />
+  </head>
+  <body>
+    <div class="blob" id="cursor-blob"></div>
+
+    <nav>
+      <a href="index.html#hero" class="logo">MARTINBAUMANN</a>
+      <ul class="nav-links">
+        <li><a href="index.html#mvp-ia">Oferta</a></li>
+        <li><a href="mapa-mvp.html">Guía gratis</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+      </ul>
+      <a href="waitlist.html" class="nav-cta">Preventa</a>
+    </nav>
+
+    <main>
+      <section id="guia-mvp" class="container guide-section standalone-map-section" data-guide>
+        <div class="guide-hero">
+          <div>
+            <span class="section-kicker">Guía gratuita</span>
+            <h1>De problema real a MVP con IA</h1>
+            <p>
+              Una guía práctica para pasar de una idea vaga a un MVP validable usando IA,
+              sin abrir herramientas antes de entender el problema, validar demanda y definir qué construir.
+            </p>
+          </div>
+
+          <div class="guide-download-card">
+            <span>Descargable</span>
+            <p>Descarga la guía base ahora, o complétala en la web y baja al final la versión con tus respuestas.</p>
+            <div class="guide-actions">
+              <button type="button" class="map-control accent-map-control" data-guide-download-base>Descargar guía base</button>
+            </div>
+            <p class="map-feedback" data-guide-feedback aria-live="polite"></p>
+          </div>
+        </div>
+
+        <div class="guide-layout">
+          <aside class="guide-sidebar" aria-label="Índice de la guía">
+            <div class="map-progress-card">
+              <span class="map-progress-label">Ruta</span>
+              <strong>6 pasos</strong>
+              <div class="guide-mini-list">
+                <a href="#problema">Problema</a>
+                <a href="#validacion">Validación</a>
+                <a href="#mvp">MVP</a>
+                <a href="#construccion">Construcción</a>
+                <a href="#lanzamiento">Lanzamiento</a>
+                <a href="#negocio">Negocio</a>
+              </div>
+            </div>
+          </aside>
+
+          <div class="guide-content">
+            <article id="problema" class="guide-chapter" data-guide-chapter>
+              <span class="map-step-number">Paso 01</span>
+              <h2>Antes de construir: encuentra un problema real</h2>
+              <p class="guide-lead">
+                La mentira más común es creer que solo necesitas una idea. Una idea entretenida no basta:
+                necesitas un problema frecuente, doloroso y reconocible en un grupo específico de personas.
+              </p>
+
+              <div class="guide-block">
+                <h3>Qué tienes que lograr</h3>
+                <p>
+                  Escribe el problema con palabras que el usuario diría, no con lenguaje de fundador.
+                  En PichangApp, el punto no era "crear una plataforma deportiva"; era resolver algo concreto:
+                  querer jugar fútbol y no tener equipo, horario o grupo armado.
+                </p>
+              </div>
+
+              <div class="guide-block">
+                <h3>Cómo hacerlo</h3>
+                <ol>
+                  <li>Elige un mercado que ya entiendas o puedas observar de cerca.</li>
+                  <li>Busca comportamientos existentes: grupos de WhatsApp, planillas, DMs, pagos manuales, comunidades.</li>
+                  <li>Copia bien modelos que ya funcionan afuera, pero adapta el problema a tu mercado local.</li>
+                  <li>Reduce la idea a una frase: "Ayudo a [usuario] a lograr [resultado] sin [dolor actual]".</li>
+                </ol>
+              </div>
+
+              <div class="guide-exercise">
+                <h3>Mini entregable: mapa de problema real</h3>
+                <label>
+                  Usuario específico
+                  <textarea data-guide-field="usuario" data-guide-label="Usuario específico" placeholder="Ej: Personas de 20 a 35 años que quieren jugar fútbol amateur en Santiago pero no tienen equipo fijo."></textarea>
+                </label>
+                <label>
+                  Problema en palabras del usuario
+                  <textarea data-guide-field="problema" data-guide-label="Problema real" placeholder="Ej: Quiero jugar, pero coordinar por WhatsApp es lento, nadie confirma y siempre falta gente."></textarea>
+                </label>
+              </div>
+            </article>
+
+            <article id="validacion" class="guide-chapter" data-guide-chapter>
+              <span class="map-step-number">Paso 02</span>
+              <h2>Validación sin humo</h2>
+              <p class="guide-lead">
+                Validar no es recibir likes. Validar es encontrar señales de que alguien quiere moverse:
+                dejar datos, responder preguntas, entrar a una waitlist, pagar, reservar o pedir acceso.
+              </p>
+
+              <div class="guide-block">
+                <h3>Qué tienes que lograr</h3>
+                <p>
+                  Antes de construir, necesitas una señal de demanda. Puede ser una landing simple,
+                  una lista de espera, entrevistas, DMs o contenido documentando el proceso. Lo importante
+                  es separar feedback real de apoyo superficial.
+                </p>
+              </div>
+
+              <div class="guide-block">
+                <h3>Cómo hacerlo</h3>
+                <ol>
+                  <li>Publica el problema, no la solución completa.</li>
+                  <li>Abre una landing o formulario con una promesa clara.</li>
+                  <li>Habla con usuarios antes de construir pantallas.</li>
+                  <li>Pregunta por intentos anteriores: cómo resuelven esto hoy, cuánto les cuesta, qué han probado.</li>
+                  <li>Define una señal mínima para avanzar: por ejemplo, 50 leads, 10 entrevistas o 5 pagos/reservas.</li>
+                </ol>
+              </div>
+
+              <div class="guide-exercise">
+                <h3>Mini entregable: landing + waitlist + entrevistas</h3>
+                <label>
+                  Promesa de landing
+                  <textarea data-guide-field="promesa" data-guide-label="Promesa de landing" placeholder="Ej: Encuentra tu próxima pichanga en minutos, aunque no tengas equipo."></textarea>
+                </label>
+                <label>
+                  Señal para avanzar
+                  <textarea data-guide-field="senal" data-guide-label="Señal de validación" placeholder="Ej: 100 personas en waitlist y 10 conversaciones reales con jugadores."></textarea>
+                </label>
+              </div>
+            </article>
+
+            <article id="mvp" class="guide-chapter" data-guide-chapter>
+              <span class="map-step-number">Paso 03</span>
+              <h2>Diseña el MVP antes de programar</h2>
+              <p class="guide-lead">
+                Un MVP no es la versión chica de tu sueño completo. Es el experimento más pequeño
+                que prueba si el problema importa y si tu solución tiene sentido.
+              </p>
+
+              <div class="guide-block">
+                <h3>Qué tienes que lograr</h3>
+                <p>
+                  Define el flujo principal, las pantallas necesarias y las funciones que quedan fuera.
+                  Esta parte evita que la IA construya un monstruo. Si no sabes decir que NO entra,
+                  todavía no tienes MVP.
+                </p>
+              </div>
+
+              <div class="guide-block">
+                <h3>Cómo hacerlo</h3>
+                <ol>
+                  <li>Escribe el flujo principal en una línea.</li>
+                  <li>Convierte ese flujo en pantallas.</li>
+                  <li>Marca máximo 3 o 4 funciones imprescindibles.</li>
+                  <li>Escribe una lista explícita de features prohibidas para la primera versión.</li>
+                  <li>Convierte todo eso en un PRD simple para IA: objetivo, usuario, flujo, pantallas, reglas y restricciones.</li>
+                </ol>
+              </div>
+
+              <div class="guide-exercise">
+                <h3>Mini entregable: PRD simple</h3>
+                <label>
+                  Flujo principal
+                  <textarea data-guide-field="flujo" data-guide-label="Flujo principal" placeholder="Ej: Entra -> ve partidos disponibles -> elige horario -> paga cupo -> recibe confirmación."></textarea>
+                </label>
+                <label>
+                  Qué queda fuera
+                  <textarea data-guide-field="fuera" data-guide-label="Queda fuera del MVP" placeholder="Ej: Torneos, ranking avanzado, chat completo, equipos recurrentes."></textarea>
+                </label>
+              </div>
+            </article>
+
+            <article id="construccion" class="guide-chapter" data-guide-chapter>
+              <span class="map-step-number">Paso 04</span>
+              <h2>Construir con IA sin perder el control</h2>
+              <p class="guide-lead">
+                La IA sirve como palanca, no como piloto automático. Si le das instrucciones vagas,
+                te devuelve código, pantallas o flujos vagos. Tu trabajo es darle contexto y revisar.
+              </p>
+
+              <div class="guide-block">
+                <h3>Workflow recomendado</h3>
+                <ol>
+                  <li>Parte con el PRD y el flujo, no con código.</li>
+                  <li>Usa referencias visuales para comunicar UI.</li>
+                  <li>Pide cambios pequeños y verificables.</li>
+                  <li>Guarda versiones antes de pedir cambios grandes.</li>
+                  <li>Cuando algo se rompe, describe el error, el resultado esperado y el archivo afectado.</li>
+                </ol>
+              </div>
+
+              <div class="guide-callout">
+                <strong>Ejemplo de prompt bueno:</strong>
+                <p>
+                  "Estoy construyendo una app para [usuario]. Este es el flujo principal: [flujo].
+                  Necesito crear solo la pantalla de [pantalla], con estos estados: vacío, cargando,
+                  error y éxito. No agregues features fuera del MVP."
+                </p>
+              </div>
+
+              <div class="guide-exercise">
+                <h3>Mini entregable: stack y uso de IA</h3>
+                <label>
+                  Stack inicial
+                  <textarea data-guide-field="stack" data-guide-label="Stack inicial" placeholder="Ej: Expo, React Native, Supabase, Vercel, Codex."></textarea>
+                </label>
+                <label>
+                  Qué le vas a pedir a la IA
+                  <textarea data-guide-field="ia" data-guide-label="Uso de IA" placeholder="Ej: PRD, pantallas, prompts de debugging, tests y copy de la landing."></textarea>
+                </label>
+              </div>
+            </article>
+
+            <article id="lanzamiento" class="guide-chapter" data-guide-chapter>
+              <span class="map-step-number">Paso 05</span>
+              <h2>Lanza antes de sentirte listo</h2>
+              <p class="guide-lead">
+                Construir no es lanzar. Lanzar significa poner el MVP frente a personas reales con un CTA claro,
+                un canal de distribución y una razón para actuar ahora.
+              </p>
+
+              <div class="guide-block">
+                <h3>Qué tienes que preparar</h3>
+                <ol>
+                  <li>Lista de espera o primeros usuarios.</li>
+                  <li>Landing clara con un CTA directo.</li>
+                  <li>Contenido que cuente el problema, el proceso y la solución.</li>
+                  <li>Canal principal de conversión: App Store, Google Play, formulario, WhatsApp o pago.</li>
+                  <li>Plan para el día 2, porque el lanzamiento no puede morir después del primer post.</li>
+                </ol>
+              </div>
+
+              <div class="guide-exercise">
+                <h3>Mini entregable: checklist de lanzamiento</h3>
+                <label>
+                  Canal principal
+                  <textarea data-guide-field="canal" data-guide-label="Canal de lanzamiento" placeholder="Ej: Instagram Reels + historias + waitlist + DMs a usuarios interesados."></textarea>
+                </label>
+                <label>
+                  CTA principal
+                  <textarea data-guide-field="cta" data-guide-label="CTA principal" placeholder="Ej: Descarga la app, únete a la waitlist, agenda una llamada, reserva tu cupo."></textarea>
+                </label>
+              </div>
+            </article>
+
+            <article id="negocio" class="guide-chapter" data-guide-chapter>
+              <span class="map-step-number">Paso 06</span>
+              <h2>Convierte el MVP en negocio</h2>
+              <p class="guide-lead">
+                Primero construyes algo real. Después lo conviertes en negocio. Para eso necesitas mirar métricas,
+                entender monetización, ordenar operaciones y crear un sistema de crecimiento.
+              </p>
+
+              <div class="guide-block">
+                <h3>Qué mirar desde el día 1</h3>
+                <ol>
+                  <li>Usuarios interesados vs usuarios activos.</li>
+                  <li>Conversión del CTA principal.</li>
+                  <li>Retención: quién vuelve y por qué.</li>
+                  <li>Monetización: comisión, suscripción, servicio, marketplace o venta directa.</li>
+                  <li>Operaciones: backoffice, soporte, pagos, referidos y contenido.</li>
+                </ol>
+              </div>
+
+              <div class="guide-callout">
+                <strong>Idea clave:</strong>
+                <p>
+                  No necesitas revelar cifras exactas para enseñar negocio. Puedes mostrar mecanismos:
+                  qué métricas miras, qué decisiones tomas y qué harías distinto si partieras hoy.
+                </p>
+              </div>
+
+              <div class="guide-exercise">
+                <h3>Mini entregable: tablero básico</h3>
+                <label>
+                  Métrica principal
+                  <textarea data-guide-field="metrica" data-guide-label="Métrica principal" placeholder="Ej: Reservas pagadas por semana, usuarios activos, leads calificados o entrevistas completadas."></textarea>
+                </label>
+                <label>
+                  Primer mecanismo de monetización
+                  <textarea data-guide-field="monetizacion" data-guide-label="Monetización inicial" placeholder="Ej: Comisión por reserva, plan mensual, servicio premium, fee por lead."></textarea>
+                </label>
+              </div>
+            </article>
+
+            <div class="guide-final-cta">
+              <span class="section-kicker">Siguiente paso</span>
+              <h2>Cuando tengas el mapa, toca construir con método.</h2>
+              <p>
+                La versión extendida de esta guía será el curso De Idea a App con IA:
+                estrategia, validación, PRD, prompts, construcción, lanzamiento y negocio usando casos reales.
+              </p>
+              <button type="button" class="offer-button button-reset" data-guide-download>
+                Descargar guía con mis respuestas
+              </button>
+              <a href="waitlist.html" class="offer-button">Entrar a la waitlist</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer id="contacto">
+        <div class="container">
+          <div class="footer-cta landing-footer-cta">
+            <p class="cta-subtitle">¿Ya completaste tus respuestas?</p>
+            <button type="button" class="massive-text-cta button-reset" data-guide-download>
+              DESCARGAR GUÍA <span class="arrow">↗</span>
+            </button>
+          </div>
+          <div class="divider"></div>
+          <div style="display: flex; justify-content: space-between; font-family: var(--heading-font); font-size: 0.8rem; text-transform: uppercase; color: #555; flex-wrap: wrap; gap: 20px; font-weight: 600;">
+            <div>© <span id="year"></span> MARTIN BAUMANN</div>
+            <div class="social-links">
+              <a href="https://instagram.com/martinbaumann_" target="_blank" rel="noreferrer">INSTAGRAM</a>
+              <a href="https://www.tiktok.com/@martinbaumann_" target="_blank" rel="noreferrer">TIKTOK</a>
+              <a href="https://www.linkedin.com/in/martin-baumann-064b62186/" target="_blank" rel="noreferrer">LINKEDIN</a>
+            </div>
+            <div>BUILDER // DIGITAL</div>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js?v=1"></script>
+    <script src="script.js?v=7"></script>
+  </body>
+</html>
