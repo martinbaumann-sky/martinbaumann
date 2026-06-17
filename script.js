@@ -37,7 +37,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const insertSupabaseRow = async (table, payload) => {
     const client = getSupabaseClient();
-    if (!client || !table) return { ok: true, skipped: true };
+    if (!client || !table) {
+      return {
+        ok: false,
+        configMissing: true,
+        error: new Error("Supabase no está configurado."),
+      };
+    }
 
     const { error } = await client.from(table).insert(payload);
     if (error) return { ok: false, error };
