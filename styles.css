@@ -260,6 +260,75 @@ nav.nav-scrolled {
   border-color: var(--accent);
 }
 
+.services-section {
+  min-height: auto;
+  width: 100%;
+  background: var(--fg);
+  color: var(--bg);
+  padding: 120px 20px;
+  justify-content: center;
+}
+
+.services-inner {
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.service-eyebrow {
+  margin-bottom: 18px;
+  color: rgba(250, 249, 246, 0.64);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.services-section h2 {
+  max-width: 860px;
+  margin: 0;
+  font-family: var(--heading-font);
+  font-size: clamp(3rem, 9vw, 7rem);
+  font-weight: 900;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.service-copy {
+  max-width: 760px;
+  margin: 34px 0 0;
+  color: rgba(250, 249, 246, 0.78);
+  font-size: clamp(1.1rem, 2vw, 1.45rem);
+  line-height: 1.55;
+}
+
+.service-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  margin-top: 42px;
+  padding: 16px 28px;
+  border: 1px solid var(--bg);
+  border-radius: 999px;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--heading-font);
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+.service-whatsapp:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
 .sticky-type {
   position: sticky;
   top: 15%;
