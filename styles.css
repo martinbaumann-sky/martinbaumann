@@ -376,21 +376,16 @@ footer {
     display: none;
   }
   nav {
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
+    display: flex;
+    justify-content: flex-end;
     align-items: center;
-    gap: 10px;
-    background: transparent;
-    backdrop-filter: none;
-    padding: 15px;
+    background: rgba(250, 249, 246, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 12px 14px;
   }
   .nav-links {
-    gap: 10px;
-    justify-content: flex-start;
-  }
-  .nav-links a {
-    font-size: 0.75rem;
+    display: none;
   }
   .nav-cta {
     padding: 8px 15px;
@@ -403,6 +398,11 @@ footer {
   .profile-pic-container {
     width: 120px;
     height: 120px;
+  }
+  #hero {
+    height: 100svh;
+    min-height: 100svh;
+    padding: 0;
   }
   .huge-type {
     font-size: clamp(2.5rem, 12vw, 8rem);
