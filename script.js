@@ -10,14 +10,15 @@ document.addEventListener("DOMContentLoaded", () => {
       if (resolved) return client;
       resolved = true;
 
-      const hasConfig = supabaseConfig.enabled !== false && supabaseConfig.url && supabaseConfig.anonKey;
+      const publicKey = supabaseConfig.publishableKey || supabaseConfig.anonKey;
+      const hasConfig = supabaseConfig.enabled !== false && supabaseConfig.url && publicKey;
       const canCreateClient = window.supabase && typeof window.supabase.createClient === "function";
       if (!hasConfig || !canCreateClient) {
         client = null;
         return client;
       }
 
-      client = window.supabase.createClient(supabaseConfig.url, supabaseConfig.anonKey, {
+      client = window.supabase.createClient(supabaseConfig.url, publicKey, {
         auth: {
           persistSession: false,
           autoRefreshToken: false,
@@ -37,7 +38,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const insertSupabaseRow = async (table, payload) => {
     const client = getSupabaseClient();
-    if (!client || !table) return { ok: true, skipped: true };
+    if (!client || !table) {
+      return {
+        ok: false,
+        error: {
+          code: "CONFIG_MISSING",
+          message: "Supabase no está configurado.",
+        },
+      };
+    }
 
     const { error } = await client.from(table).insert(payload);
     if (error) return { ok: false, error };
@@ -59,6 +68,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Parallax Effect
   const nav = document.querySelector("nav");
+  const navToggle = document.querySelector("[data-nav-toggle]");
+  const navMenu = document.querySelector("[data-nav-menu]");
   const parallaxTexts = Array.from(document.querySelectorAll(".parallax-text"));
   const profilePic = document.querySelector(".profile-pic-container");
   let scrollFrame = 0;
@@ -89,6 +100,37 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }, { passive: true });
   handleScroll();
+
+  if (navToggle && navMenu) {
+    const closeMenu = () => {
+      nav.classList.remove("nav-open");
+      navToggle.setAttribute("aria-expanded", "false");
+    };
+
+    navToggle.addEventListener("click", () => {
+      const isOpen = nav.classList.toggle("nav-open");
+      navToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    navMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+  }
+
+  const trackEvent = (name, details = {}) => {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: name, ...details });
+    window.dispatchEvent(new CustomEvent("martinbaumann:analytics", { detail: { name, ...details } }));
+  };
+
+  document.querySelectorAll("[data-track]").forEach((element) => {
+    element.addEventListener("click", () => {
+      trackEvent(element.dataset.track, {
+        destination: element.getAttribute("href") || null,
+        page: window.location.pathname,
+      });
+    });
+  });
 
   // Smooth scrolling for anchor links
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -428,7 +470,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       lines.push("## Siguiente paso", "");
-      lines.push("La versión extendida de esta guía será el curso De Idea a App con IA: estrategia, validación, PRD, prompts, construcción, lanzamiento y negocio usando casos reales.", "");
+      lines.push("La versión extendida de esta guía será el taller De Idea a MVP con IA: estrategia, validación, PRD, prompts, construcción, lanzamiento y negocio usando casos reales.", "");
       return lines.join("\n").trim();
     };
 
@@ -476,22 +518,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Waitlist form
   const waitlistForm = document.querySelector("[data-waitlist-form]");
   if (waitlistForm) {
-    const waitlistStorageKey = "martinbaumann_waitlist_v1";
     const waitlistFeedback = document.querySelector("[data-waitlist-feedback]");
-
-    const readWaitlist = () => {
-      try {
-        return JSON.parse(localStorage.getItem(waitlistStorageKey)) || [];
-      } catch {
-        return [];
-      }
-    };
-
-    const writeWaitlistLocal = (entry) => {
-      const entries = readWaitlist();
-      entries.push(entry);
-      localStorage.setItem(waitlistStorageKey, JSON.stringify(entries));
-    };
 
     const saveWaitlistEntry = async (entry) => {
       const result = await insertSupabaseRow(supabaseConfig.waitlistTable || "waitlist_leads", {
@@ -530,31 +557,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (submitButton) submitButton.disabled = true;
       if (waitlistFeedback) waitlistFeedback.textContent = "Guardando...";
+      trackEvent("waitlist_submit_started", { stage: entry.stage, page: window.location.pathname });
 
       try {
         const result = await saveWaitlistEntry(entry);
 
         if (!result.ok) {
-          writeWaitlistLocal(entry);
           if (waitlistFeedback) {
-            waitlistFeedback.textContent = "No pude guardar tus datos. Intenta nuevamente en unos minutos.";
+            waitlistFeedback.textContent = result.error?.code === "CONFIG_MISSING"
+              ? "La inscripción todavía no está habilitada. Escríbeme por Instagram mientras terminamos la configuración."
+              : "No pude guardar tus datos. Intenta nuevamente en unos minutos.";
           }
+          trackEvent("waitlist_submit_failed", { code: result.error?.code || "UNKNOWN" });
           return;
         }
 
-        writeWaitlistLocal(entry);
         waitlistForm.reset();
         if (waitlistFeedback) {
           waitlistFeedback.textContent = result.duplicate
             ? "Ya estabas en la waitlist. Te avisaré cuando abra la primera generación."
             : "Listo. Quedaste en la waitlist de la primera generación.";
         }
+        trackEvent("waitlist_submit_succeeded", { duplicate: Boolean(result.duplicate) });
       } catch (error) {
         console.warn("No se pudo guardar la waitlist en Supabase.", error);
-        writeWaitlistLocal(entry);
         if (waitlistFeedback) {
           waitlistFeedback.textContent = "No pude guardar tus datos. Intenta nuevamente en unos minutos.";
         }
+        trackEvent("waitlist_submit_failed", { code: "UNEXPECTED" });
       } finally {
         if (submitButton) submitButton.disabled = false;
       }

@@ -11,9 +11,12 @@
     <meta name="keywords" content="Martin Baumann, MVP con IA, emprender con IA, PichangApp, no programadores, inteligencia artificial" />
     <meta name="author" content="Martin Baumann" />
     <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://martinbaumann.com/" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="De Idea a MVP con IA | Martin Baumann" />
     <meta property="og:description" content="Transforma una idea en un MVP validable usando IA, con el caso real de PichangApp como referencia." />
+    <meta property="og:url" content="https://martinbaumann.com/" />
+    <meta property="og:image" content="https://martinbaumann.com/profile.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="De Idea a MVP con IA | Martin Baumann" />
     <meta name="twitter:description" content="Transforma una idea en un MVP validable usando IA, aunque no seas programador." />
@@ -35,19 +38,22 @@
     }
     </script>
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css?v=15" />
+    <link rel="stylesheet" href="styles.css?v=17" />
   </head>
   <body>
     <div class="blob" id="cursor-blob"></div>
 
-    <nav>
-      <a href="index.html#hero" class="logo">MARTINBAUMANN</a>
-      <ul class="nav-links">
-        <li><a href="index.html#mvp-ia" title="Ver la oferta">Oferta</a></li>
-        <li><a href="mapa-mvp.html" title="Abrir la guía gratuita">Guía gratis</a></li>
-        <li><a href="portfolio.html" title="Ver proyectos y servicios">Portfolio</a></li>
-      </ul>
-      <a href="waitlist.html" class="nav-cta" title="Entrar a la lista de espera">Preventa</a>
+    <nav aria-label="Navegación principal">
+      <a href="index.html#hero" class="logo" aria-label="Martin Baumann, inicio">MARTINBAUMANN</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>Menú</button>
+      <div class="nav-menu" id="site-nav" data-nav-menu>
+        <ul class="nav-links">
+          <li><a href="index.html#mvp-ia" title="Ver la oferta">Oferta</a></li>
+          <li><a href="mapa-mvp.html" title="Abrir la guía gratuita">Guía gratis</a></li>
+          <li><a href="portfolio.html" title="Ver proyectos y servicios">Portfolio</a></li>
+        </ul>
+        <a href="waitlist.html" class="nav-cta" title="Entrar a la lista de espera" data-track="nav_waitlist_clicked">Preventa</a>
+      </div>
     </nav>
 
     <main>
@@ -60,10 +66,10 @@
           <span class="huge-type outline-text parallax-text" data-speed="2">CON IA</span>
         </h1>
         <div class="hero-offer container">
-          <p>Aprende a transformar una idea en un MVP validable usando IA, aunque no seas programador.</p>
+          <p>En 3 clases en vivo, define el problema, diseña tu MVP y sal con un roadmap para validarlo usando IA, aunque no programes.</p>
           <div class="hero-actions">
-            <a href="mapa-mvp.html" class="primary-link">Abrir guía gratis</a>
-            <a href="#mvp-ia" class="secondary-link">Ver preventa</a>
+            <a href="mapa-mvp.html" class="primary-link" data-track="hero_guide_clicked">Probar la guía gratis</a>
+            <a href="#mvp-ia" class="secondary-link" data-track="hero_offer_clicked">Ver el taller</a>
           </div>
         </div>
       </section>
@@ -73,15 +79,15 @@
         <h2 class="landing-section-title">Estoy construyendo productos reales y documentando el proceso.</h2>
         <div class="metrics-grid">
           <div class="metric-card">
-            <span class="huge-type">+<span class="counter" data-target="20">0</span>K</span>
-            <p>Seguidores en Instagram</p>
+            <span class="huge-type">+<span class="counter" data-target="20">20</span>K</span>
+            <p><a href="https://instagram.com/martinbaumann_" target="_blank" rel="noreferrer">Seguidores en Instagram ↗</a></p>
           </div>
           <div class="metric-card">
-            <span class="huge-type">+<span class="counter" data-target="14">0</span>K</span>
-            <p>Seguidores en TikTok</p>
+            <span class="huge-type">+<span class="counter" data-target="14">14</span>K</span>
+            <p><a href="https://www.tiktok.com/@martinbaumann_" target="_blank" rel="noreferrer">Seguidores en TikTok ↗</a></p>
           </div>
           <div class="metric-card">
-            <span class="huge-type"><span class="counter" data-target="3">0</span></span>
+            <span class="huge-type"><span class="counter" data-target="3">3</span></span>
             <p>Empresas cofundadas</p>
           </div>
         </div>
@@ -111,23 +117,42 @@
           </div>
 
           <div class="offer-panel paid-panel">
-            <span class="offer-label">Producto inicial</span>
-            <h3>Preventa: Taller MVP con IA</h3>
-            <p>Para pasar del mapa a una estructura concreta de producto, flujo, pantallas y lanzamiento.</p>
+            <span class="offer-label">Primera generación</span>
+            <h3>Taller en vivo: De Idea a MVP con IA</h3>
+            <p>Para emprendedores no técnicos que quieren convertir una idea en un MVP pequeño y validable.</p>
             <div class="price-row">
               <span class="price">$49.990 CLP</span>
               <span class="price-note">precio fundador</span>
             </div>
             <ul>
               <li>3 clases en vivo con grabaciones.</li>
-              <li>Templates, prompts y checklist de validación.</li>
+              <li>Plantillas, prompts y checklist de validación.</li>
               <li>Caso PichangApp: decisiones, errores y aprendizajes reales.</li>
               <li>Roadmap para construir tu primer MVP validable.</li>
             </ul>
-            <a href="waitlist.html" class="offer-button">
-              Quiero entrar a la preventa
+            <a href="waitlist.html" class="offer-button" data-track="offer_waitlist_clicked">
+              Reservar precio fundador
             </a>
           </div>
+        </div>
+      </section>
+
+      <section class="container faq-section" aria-labelledby="faq-title">
+        <span class="section-kicker">Preguntas frecuentes</span>
+        <h2 id="faq-title" class="landing-section-title">Antes de reservar tu lugar</h2>
+        <div class="faq-list">
+          <details>
+            <summary>¿Necesito saber programar?</summary>
+            <p>No. El taller está pensado para personas no técnicas. Usaremos IA como apoyo, pero el foco estará en tomar buenas decisiones de producto.</p>
+          </details>
+          <details>
+            <summary>¿Qué voy a tener al terminar?</summary>
+            <p>Una definición clara del problema, el flujo principal, el alcance del MVP, prompts de trabajo y un roadmap para validarlo con usuarios reales.</p>
+          </details>
+          <details>
+            <summary>¿Qué incluye el precio fundador?</summary>
+            <p>Tres clases en vivo, acceso a las grabaciones, plantillas, prompts, checklist de validación y el caso real de PichangApp.</p>
+          </details>
         </div>
       </section>
 
@@ -146,6 +171,7 @@
               <a href="https://instagram.com/martinbaumann_" target="_blank" rel="noreferrer" title="Instagram de Martin Baumann">INSTAGRAM</a>
               <a href="https://www.tiktok.com/@martinbaumann_" target="_blank" rel="noreferrer" title="TikTok de Martin Baumann">TIKTOK</a>
               <a href="https://www.linkedin.com/in/martin-baumann-064b62186/" target="_blank" rel="noreferrer" title="LinkedIn de Martin Baumann">LINKEDIN</a>
+              <a href="privacidad.html">PRIVACIDAD</a>
             </div>
             <div>BUILDER // DIGITAL</div>
           </div>
@@ -153,6 +179,6 @@
       </footer>
     </main>
 
-    <script src="script.js?v=7"></script>
+    <script src="script.js?v=8"></script>
   </body>
 </html>

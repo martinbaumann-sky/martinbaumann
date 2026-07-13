@@ -10,21 +10,29 @@
     />
     <meta name="author" content="Martin Baumann" />
     <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://martinbaumann.com/portfolio.html" />
+    <meta property="og:title" content="Portfolio | Martin Baumann" />
+    <meta property="og:description" content="Productos digitales, contenido, marketing e IA construidos por Martin Baumann." />
+    <meta property="og:url" content="https://martinbaumann.com/portfolio.html" />
+    <meta property="og:image" content="https://martinbaumann.com/profile.jpg" />
     <meta name="theme-color" content="#faf9f6" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css?v=16" />
+    <link rel="stylesheet" href="styles.css?v=17" />
   </head>
   <body>
     <div class="blob" id="cursor-blob"></div>
 
-    <nav>
-      <a href="index.html#hero" class="logo">MARTINBAUMANN</a>
-      <ul class="nav-links">
-        <li><a href="index.html#mvp-ia">Oferta</a></li>
-        <li><a href="mapa-mvp.html">Gu&iacute;a gratis</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
-      </ul>
-      <a href="waitlist.html" class="nav-cta">Preventa</a>
+    <nav aria-label="Navegación principal">
+      <a href="index.html#hero" class="logo" aria-label="Martin Baumann, inicio">MARTINBAUMANN</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>Menú</button>
+      <div class="nav-menu" id="site-nav" data-nav-menu>
+        <ul class="nav-links">
+          <li><a href="index.html#mvp-ia">Oferta</a></li>
+          <li><a href="mapa-mvp.html">Guía gratis</a></li>
+          <li><a href="portfolio.html" aria-current="page">Portfolio</a></li>
+        </ul>
+        <a href="waitlist.html" class="nav-cta">Preventa</a>
+      </div>
     </nav>
 
     <main class="portfolio-page">
@@ -181,6 +189,7 @@
               <a href="https://instagram.com/martinbaumann_" target="_blank" rel="noreferrer">INSTAGRAM</a>
               <a href="https://www.tiktok.com/@martinbaumann_" target="_blank" rel="noreferrer">TIKTOK</a>
               <a href="https://www.linkedin.com/in/martin-baumann-064b62186/" target="_blank" rel="noreferrer">LINKEDIN</a>
+              <a href="privacidad.html">PRIVACIDAD</a>
             </div>
             <div>BUILDER // DIGITAL</div>
           </div>
@@ -188,6 +197,6 @@
       </footer>
     </main>
 
-    <script src="script.js?v=7"></script>
+    <script src="script.js?v=8"></script>
   </body>
 </html>

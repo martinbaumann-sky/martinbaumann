@@ -3,35 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Waitlist | De Idea a App con IA</title>
+    <title>Preventa | De Idea a MVP con IA</title>
     <meta
       name="description"
-      content="Únete a la lista de espera de De Idea a App con IA, el curso de Martin Baumann para construir MVPs validables con IA sin ser programador."
+      content="Reserva el precio fundador del taller De Idea a MVP con IA de Martin Baumann para crear un MVP validable sin ser programador."
     />
     <meta name="author" content="Martin Baumann" />
     <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://martinbaumann.com/waitlist.html" />
+    <meta property="og:title" content="Preventa | De Idea a MVP con IA" />
+    <meta property="og:description" content="Reserva el precio fundador del taller en vivo para crear un MVP validable con IA." />
+    <meta property="og:url" content="https://martinbaumann.com/waitlist.html" />
+    <meta property="og:image" content="https://martinbaumann.com/profile.jpg" />
     <meta name="theme-color" content="#faf9f6" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css?v=15" />
+    <link rel="stylesheet" href="styles.css?v=17" />
   </head>
   <body>
     <div class="blob" id="cursor-blob"></div>
 
-    <nav>
-      <a href="index.html#hero" class="logo">MARTINBAUMANN</a>
-      <ul class="nav-links">
-        <li><a href="index.html#mvp-ia">Oferta</a></li>
-        <li><a href="mapa-mvp.html">Guía gratis</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
-      </ul>
-      <a href="waitlist.html" class="nav-cta">Preventa</a>
+    <nav aria-label="Navegación principal">
+      <a href="index.html#hero" class="logo" aria-label="Martin Baumann, inicio">MARTINBAUMANN</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>Menú</button>
+      <div class="nav-menu" id="site-nav" data-nav-menu>
+        <ul class="nav-links">
+          <li><a href="index.html#mvp-ia">Oferta</a></li>
+          <li><a href="mapa-mvp.html">Guía gratis</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+        </ul>
+        <a href="waitlist.html" class="nav-cta" aria-current="page">Preventa</a>
+      </div>
     </nav>
 
     <main>
       <section id="waitlist" class="container waitlist-section">
         <div class="waitlist-copy">
-          <span class="section-kicker">Lista de espera</span>
-          <h1>De Idea a App con IA</h1>
+          <span class="section-kicker">Preventa · primera generación</span>
+          <h1>De Idea a MVP con IA</h1>
           <p>
             La primera generación todavía no está abierta. Déjame tus datos y te aviso cuando abra la preventa
             con precio fundador, temario final y fechas de entrega.
@@ -40,7 +48,7 @@
           <div class="waitlist-points">
             <div>
               <span>01</span>
-              <p>Curso grabado lanzado por etapas, sin vender humo ni prometer ingresos.</p>
+              <p>3 clases en vivo con grabaciones, enfocadas en decisiones y ejecución.</p>
             </div>
             <div>
               <span>02</span>
@@ -56,8 +64,8 @@
         <form class="waitlist-form" data-waitlist-form>
           <div class="waitlist-form-header">
             <span class="offer-label">Acceso anticipado</span>
-            <h2>Entrar a la waitlist</h2>
-            <p>Te escribiré cuando abra la primera generación.</p>
+            <h2>Reservar precio fundador</h2>
+            <p>Te escribiré cuando confirmemos fechas y cupos. No se realizará ningún cobro ahora.</p>
           </div>
 
           <label>
@@ -71,7 +79,7 @@
           </label>
 
           <label>
-            Instagram o TikTok
+            Instagram o TikTok <span class="optional-label">Opcional</span>
             <input type="text" name="social" placeholder="@tuusuario" />
           </label>
 
@@ -87,11 +95,16 @@
           </label>
 
           <label>
-            ¿Qué quieres construir?
+            ¿Qué quieres construir? <span class="optional-label">Opcional</span>
             <textarea name="project" placeholder="Cuéntame en 2-3 líneas qué idea tienes o qué problema quieres resolver."></textarea>
           </label>
 
-          <button type="submit" class="offer-button waitlist-submit">Entrar a la waitlist</button>
+          <label class="privacy-consent">
+            <input type="checkbox" name="privacy" required />
+            <span>Acepto que Martin use estos datos para contactarme sobre el taller, según la <a href="privacidad.html" target="_blank">política de privacidad</a>.</span>
+          </label>
+
+          <button type="submit" class="offer-button waitlist-submit">Reservar precio fundador</button>
           <p class="waitlist-feedback" data-waitlist-feedback aria-live="polite"></p>
         </form>
       </section>
@@ -99,6 +112,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="supabase-config.js?v=1"></script>
-    <script src="script.js?v=7"></script>
+    <script src="script.js?v=8"></script>
   </body>
 </html>

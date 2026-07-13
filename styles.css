@@ -155,6 +155,28 @@ nav.nav-scrolled {
   text-decoration: none;
 }
 
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: clamp(28px, 5vw, 72px);
+}
+
+.nav-toggle {
+  display: none;
+  min-width: 48px;
+  min-height: 44px;
+  border: 1px solid var(--fg);
+  border-radius: 999px;
+  background: var(--fg);
+  color: var(--bg);
+  padding: 0 16px;
+  font-family: var(--heading-font);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
 .nav-links {
   display: flex;
   gap: 40px;
@@ -174,6 +196,10 @@ nav.nav-scrolled {
 }
 
 .nav-links a:hover {
+  color: var(--accent);
+}
+
+.nav-links a[aria-current="page"] {
   color: var(--accent);
 }
 
@@ -1622,6 +1648,28 @@ footer {
   margin: 40px 0;
 }
 
+.metric-card p a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.faq-section { border-top: 1px solid var(--gray); }
+.faq-list { max-width: 900px; margin-top: 42px; border-bottom: 1px solid var(--gray); }
+.faq-list details { border-top: 1px solid var(--gray); padding: 24px 0; }
+.faq-list summary { font-family: var(--heading-font); font-size: clamp(1.05rem, 2vw, 1.35rem); font-weight: 800; cursor: pointer; }
+.faq-list p { max-width: 760px; padding-top: 16px; color: #444; font-size: 1.05rem; line-height: 1.65; }
+
+.optional-label { color: #666; font-family: var(--body-font); font-size: 0.72rem; font-weight: 500; letter-spacing: 0; text-transform: none; }
+.waitlist-form .privacy-consent { display: flex; align-items: flex-start; gap: 12px; color: #555; font-family: var(--body-font); font-size: 0.88rem; font-weight: 400; letter-spacing: 0; line-height: 1.5; text-transform: none; }
+.privacy-consent input { width: 18px; height: 18px; margin-top: 2px; flex: 0 0 auto; accent-color: var(--accent); }
+.privacy-consent a { color: var(--fg); }
+
+.legal-page { max-width: 900px; min-height: 100svh; padding-top: 160px; }
+.legal-page h1 { font-family: var(--heading-font); font-size: clamp(2.8rem, 8vw, 6.5rem); line-height: 0.92; text-transform: uppercase; margin: 16px 0 32px; }
+.legal-content { display: grid; gap: 26px; color: #444; font-size: 1.05rem; line-height: 1.7; }
+.legal-content h2 { color: var(--fg); font-family: var(--heading-font); font-size: 1.2rem; text-transform: uppercase; }
+
 /* Responsive */
 @media (max-width: 1024px) {
   nav {
@@ -1663,29 +1711,50 @@ footer {
   nav.nav-scrolled {
     padding: 14px var(--page-x);
   }
+  .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .nav-menu {
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    right: 0;
+    display: none;
+    align-items: stretch;
+    gap: 16px;
+    padding: 20px var(--page-x) 24px;
+    background: rgba(250, 249, 246, 0.98);
+    border-top: 1px solid var(--gray);
+    box-shadow: 0 18px 40px rgba(17, 17, 17, 0.08);
+  }
+  nav.nav-open .nav-menu {
+    display: grid;
+  }
   .nav-links {
-    gap: 6px;
-    justify-content: flex-start;
-    flex: 1 1 auto;
-    min-width: 0;
-    overflow-x: auto;
-    flex-wrap: nowrap;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
+    display: grid;
+    gap: 0;
+    width: 100%;
   }
   .nav-links::-webkit-scrollbar {
     display: none;
   }
   .nav-links a {
-    font-size: 0.75rem;
-    display: block;
-    padding: 8px 4px;
-    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    min-height: 48px;
+    border-bottom: 1px solid var(--gray);
+    padding: 0;
+    font-size: 0.82rem;
   }
   .nav-cta {
-    padding: 8px 15px;
-    font-size: 0.75rem;
-    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 10px 18px;
+    font-size: 0.78rem;
   }
   .massive-text-cta {
     width: 100%;
@@ -1846,13 +1915,7 @@ footer {
 }
 
 @media (max-width: 380px) {
-  .nav-cta {
-    padding: 8px 11px;
-    font-size: 0.68rem;
-  }
-  .nav-links a {
-    font-size: 0.68rem;
-  }
+  .nav-toggle { padding: 0 13px; }
 }
 
 @media (hover: none), (pointer: coarse) {

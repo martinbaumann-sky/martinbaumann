@@ -10,21 +10,29 @@
     />
     <meta name="author" content="Martin Baumann" />
     <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://martinbaumann.com/mapa-mvp.html" />
+    <meta property="og:title" content="Guía de Idea a MVP con IA | Martin Baumann" />
+    <meta property="og:description" content="Guía práctica y gratuita para convertir una idea en un MVP validable usando IA." />
+    <meta property="og:url" content="https://martinbaumann.com/mapa-mvp.html" />
+    <meta property="og:image" content="https://martinbaumann.com/profile.jpg" />
     <meta name="theme-color" content="#faf9f6" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css?v=15" />
+    <link rel="stylesheet" href="styles.css?v=17" />
   </head>
   <body>
     <div class="blob" id="cursor-blob"></div>
 
-    <nav>
-      <a href="index.html#hero" class="logo">MARTINBAUMANN</a>
-      <ul class="nav-links">
-        <li><a href="index.html#mvp-ia">Oferta</a></li>
-        <li><a href="mapa-mvp.html">Guía gratis</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
-      </ul>
-      <a href="waitlist.html" class="nav-cta">Preventa</a>
+    <nav aria-label="Navegación principal">
+      <a href="index.html#hero" class="logo" aria-label="Martin Baumann, inicio">MARTINBAUMANN</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>Menú</button>
+      <div class="nav-menu" id="site-nav" data-nav-menu>
+        <ul class="nav-links">
+          <li><a href="index.html#mvp-ia">Oferta</a></li>
+          <li><a href="mapa-mvp.html" aria-current="page">Guía gratis</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+        </ul>
+        <a href="waitlist.html" class="nav-cta">Preventa</a>
+      </div>
     </nav>
 
     <main>
@@ -305,7 +313,7 @@
               <span class="section-kicker">Siguiente paso</span>
               <h2>Cuando tengas el mapa, toca construir con método.</h2>
               <p>
-                La versión extendida de esta guía será el curso De Idea a App con IA:
+                La versión extendida de esta guía será el taller De Idea a MVP con IA:
                 estrategia, validación, PRD, prompts, construcción, lanzamiento y negocio usando casos reales.
               </p>
               <button type="button" class="offer-button button-reset" data-guide-download>
@@ -341,6 +349,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="supabase-config.js?v=1"></script>
-    <script src="script.js?v=7"></script>
+    <script src="script.js?v=8"></script>
   </body>
 </html>
