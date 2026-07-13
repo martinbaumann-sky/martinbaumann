@@ -39,12 +39,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const insertSupabaseRow = async (table, payload) => {
     const client = getSupabaseClient();
     if (!client || !table) {
+      const err = new Error("Supabase no está configurado.");
+      err.code = "CONFIG_MISSING";
       return {
         ok: false,
-        error: {
-          code: "CONFIG_MISSING",
-          message: "Supabase no está configurado.",
-        },
+        configMissing: true,
+        error: err,
       };
     }
 

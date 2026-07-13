@@ -43,5 +43,9 @@ create policy "Anyone can register guide downloads"
   with check (true);
 
 grant usage on schema public to anon;
+revoke select, update, delete on public.waitlist_leads from anon, authenticated;
+revoke select, update, delete on public.guide_downloads from anon, authenticated;
+revoke insert on public.waitlist_leads from authenticated;
+revoke insert on public.guide_downloads from authenticated;
 grant insert on public.waitlist_leads to anon;
 grant insert on public.guide_downloads to anon;
