@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Martin Baumann | De Idea a MVP con IA</title>
+    <title>Martin Baumann | Emprendimiento, productos e IA</title>
     <meta
       name="description"
-      content="Aprende a transformar una idea en un MVP validable usando IA, aunque no seas programador, siguiendo el proceso real de Martin Baumann construyendo PichangApp."
+      content="Martin Baumann, Co-Founder de Weso y Walty. Negocios, productos digitales y aprendizajes para pasar de idea a MVP con IA."
     />
     <meta name="keywords" content="Martin Baumann, MVP con IA, emprender con IA, PichangApp, no programadores, inteligencia artificial" />
     <meta name="author" content="Martin Baumann" />
@@ -28,7 +28,8 @@
       "@type": "Person",
       "name": "Martin Baumann",
       "url": "https://martinbaumann.com",
-      "jobTitle": "Emprendedor, Creador de Contenido e Ingeniero Comercial",
+      "jobTitle": "Co-Founder en Weso y Walty, emprendedor y creador de contenido",
+      "worksFor": [{"@type": "Organization", "name": "Weso", "url": "https://weso.click"}, {"@type": "Organization", "name": "Walty", "url": "https://walty.cl"}],
       "sameAs": [
         "https://instagram.com/martinbaumann_",
         "https://www.tiktok.com/@martinbaumann_",
@@ -38,10 +39,10 @@
     }
     </script>
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="styles.css?v=17" />
+    <link rel="stylesheet" href="styles.css?v=18" />
   </head>
   <body>
-    <div class="blob" id="cursor-blob"></div>
+    <a class="skip-link" href="#main-content">Saltar al contenido</a>
 
     <nav aria-label="Navegación principal">
       <a href="index.html#hero" class="logo" aria-label="Martin Baumann, inicio">MARTINBAUMANN</a>
@@ -56,21 +57,34 @@
       </div>
     </nav>
 
-    <main>
-      <section id="hero">
-        <h1 class="hero-title-container container">
-          <div class="profile-pic-container parallax-text" data-speed="-1">
-            <img src="profile.jpg" alt="Martin Baumann" class="profile-pic" />
+    <main id="main-content">
+      <section id="hero" class="editorial-hero">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow"><span class="status-dot"></span> Martin Baumann · Emprendedor & creador</p>
+            <h1>Las ideas merecen<br>una <em>primera<br>versión.</em></h1>
+            <p class="hero-description">Construyo negocios, experimento con IA y comparto lo que aprendo en el camino. Para que tú también pases de la idea a la acción.</p>
+            <div class="hero-actions">
+              <a href="mapa-mvp.html" class="primary-link" data-track="hero_guide_clicked">De idea a MVP <span aria-hidden="true">↗</span></a>
+              <a href="portfolio.html" class="secondary-link">Conoce mis proyectos <span aria-hidden="true">↗</span></a>
+            </div>
+            <div class="founder-line"><span>CO-FOUNDER EN</span><a href="portfolio.html#weso">Weso ↗</a><a href="portfolio.html#walty">Walty ↗</a><a href="portfolio.html#pichangapp">PichangApp ↗</a><a href="portfolio.html#skyterra">SkyTerra ↗</a></div>
           </div>
-          <span class="huge-type parallax-text" data-speed="-2">IDEA A MVP</span>
-          <span class="huge-type outline-text parallax-text" data-speed="2">CON IA</span>
-        </h1>
-        <div class="hero-offer container">
-          <p>En 3 clases en vivo, define el problema, diseña tu MVP y sal con un roadmap para validarlo usando IA, aunque no programes.</p>
-          <div class="hero-actions">
-            <a href="mapa-mvp.html" class="primary-link" data-track="hero_guide_clicked">Probar la guía gratis</a>
-            <a href="#mvp-ia" class="secondary-link" data-track="hero_offer_clicked">Ver el taller</a>
-          </div>
+          <figure class="hero-portrait">
+            <img src="skyterra.jpg" alt="Martin Baumann junto al equipo de SkyTerra" fetchpriority="high" />
+            <figcaption><span>Construyendo en equipo.</span><span>Compartir el proceso. ↗</span></figcaption>
+          </figure>
+        </div>
+        <div class="container hero-footnote"><span>IDEAS → PRODUCTOS → APRENDIZAJES</span><a href="#actualidad">Lo que estoy construyendo ↓</a></div>
+      </section>
+
+      <section id="actualidad" class="container current-section">
+        <div class="current-heading"><span class="section-kicker">01 / En construcción</span><h2>Hoy, mi energía<br>está puesta aquí.</h2><p>Tecnología para resolver problemas reales. Cuatro proyectos en los que he sido Co-Founder.</p></div>
+        <div class="venture-grid">
+          <a class="venture-card weso-card" href="portfolio.html#weso"><div class="venture-top"><span>INSURTECH · INTELIGENCIA ARTIFICIAL</span><span aria-hidden="true">↗</span></div><h3>Weso<span>.</span></h3><p>Una capa de operación con IA para coordinar servicios de seguros en tiempo real.</p><div class="venture-bottom"><span>Co-Founder</span><span>Conocer proyecto</span></div></a>
+          <a class="venture-card walty-card" href="portfolio.html#walty"><div class="venture-top"><span>COMUNIDADES · BENEFICIOS</span><span aria-hidden="true">↗</span></div><h3>Walty<span>.</span></h3><p>Conectamos comunidades con beneficios de marcas y comercios a través del Pase Walty.</p><div class="venture-bottom"><span>Co-Founder</span><span>Conocer proyecto</span></div></a>
+          <a class="venture-card pichangapp-card" href="portfolio.html#pichangapp"><div class="venture-top"><span>DEPORTE · PRODUCTO DIGITAL</span><span aria-hidden="true">↗</span></div><h3>PichangApp<span>.</span></h3><p>La app para encontrar partidos, reservar cupos y jugar fútbol cuando quieras.</p><div class="venture-bottom"><span>Co-Founder</span><span>Conocer proyecto</span></div></a>
+          <a class="venture-card skyterra-card" href="portfolio.html#skyterra"><div class="venture-top"><span>REAL ESTATE · TERRENOS</span><span aria-hidden="true">↗</span></div><h3>SkyTerra<span>.</span></h3><p>Portal inmobiliario para descubrir y comprar terrenos rurales premium.</p><div class="venture-bottom"><span>Co-Founder</span><span>Conocer proyecto</span></div></a>
         </div>
       </section>
 
@@ -79,15 +93,15 @@
         <h2 class="landing-section-title">Estoy construyendo productos reales y documentando el proceso.</h2>
         <div class="metrics-grid">
           <div class="metric-card">
-            <span class="huge-type">+<span class="counter" data-target="20">20</span>K</span>
+            <span class="huge-type">+<span class="counter" data-target="26">26</span>K</span>
             <p><a href="https://instagram.com/martinbaumann_" target="_blank" rel="noreferrer">Seguidores en Instagram ↗</a></p>
           </div>
           <div class="metric-card">
-            <span class="huge-type">+<span class="counter" data-target="14">14</span>K</span>
+            <span class="huge-type">+<span class="counter" data-target="17">17</span>K</span>
             <p><a href="https://www.tiktok.com/@martinbaumann_" target="_blank" rel="noreferrer">Seguidores en TikTok ↗</a></p>
           </div>
           <div class="metric-card">
-            <span class="huge-type"><span class="counter" data-target="3">3</span></span>
+            <span class="huge-type"><span class="counter" data-target="5">5</span></span>
             <p>Empresas cofundadas</p>
           </div>
         </div>
@@ -179,6 +193,6 @@
       </footer>
     </main>
 
-    <script src="script.js?v=8"></script>
+    <script src="script.js?v=9"></script>
   </body>
 </html>
