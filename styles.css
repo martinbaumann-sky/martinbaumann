@@ -606,6 +606,60 @@ h1 em {
   line-height: 1.25;
 }
 
+/* Preguntas frecuentes */
+.faq {
+  max-width: 900px;
+  border-top: 1px solid var(--gris);
+}
+.faq details {
+  border-bottom: 1px solid var(--gris);
+}
+.faq summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 26px 4px;
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  cursor: pointer;
+  list-style: none;
+}
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+.faq summary::after {
+  content: "+";
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--gris);
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: 300;
+  transition: transform 0.4s var(--ease), background-color 0.3s;
+}
+.faq details[open] summary::after {
+  transform: rotate(45deg);
+  background: var(--blanco);
+}
+.faq details p {
+  max-width: 62ch;
+  padding: 0 4px 28px;
+  font-size: 17px;
+  font-weight: 300;
+  color: var(--gris-texto);
+}
+.faq details a {
+  color: var(--carbon);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 /* Cierre */
 .closing {
   display: grid;
@@ -646,10 +700,32 @@ h1 em {
   padding: 28px var(--gutter) 40px;
 }
 
-/* ---------- Estado inicial de la intro (lo libera script.js) ---------- */
-.motion:not(.motion-ready) [data-intro],
-.motion:not(.motion-ready) [data-split="mask"] {
-  visibility: hidden;
+/* ---------- Intro de la portada en CSS: no espera a que cargue JS ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  .hero [data-intro] {
+    animation: rise 1.2s var(--ease) both;
+  }
+  .hero .label[data-intro] {
+    animation-delay: 0.05s;
+  }
+  .hero .hero-title {
+    animation-delay: 0.12s;
+  }
+  .hero .hero-sub {
+    animation-delay: 0.3s;
+  }
+  .hero .hero-actions {
+    animation-delay: 0.42s;
+  }
+  .hero .hero-proof {
+    animation-delay: 0.56s;
+  }
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
 }
 
 /* ---------- Responsive ---------- */

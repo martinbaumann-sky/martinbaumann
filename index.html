@@ -1,58 +1,160 @@
 <!doctype html>
-<html lang="es">
+<html lang="es-CL">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Martin Baumann | Consultoría e implementación de IA</title>
+    <title>Consultoría en IA para empresas en Chile | Martin Baumann</title>
     <meta
       name="description"
-      content="Encontramos dónde la IA le ahorra más tiempo y plata a tu empresa, la implementamos con tu equipo y medimos el resultado. Agenda un diagnóstico."
+      content="Consultoría e implementación de inteligencia artificial: automatizamos procesos y creamos agentes de IA para empresas en Chile. Empieza con un diagnóstico."
     />
+    <link rel="canonical" href="https://www.martinbaumann.site/" />
     <meta name="author" content="Martin Baumann" />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
     <meta name="theme-color" content="#F7F5F2" />
 
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_CL" />
+    <meta property="og:site_name" content="Martin Baumann" />
     <meta property="og:url" content="https://www.martinbaumann.site/" />
-    <meta property="og:title" content="Martin Baumann | Consultoría e implementación de IA" />
-    <meta property="og:description" content="Hacemos que tu empresa trabaje con IA: diagnóstico, implementación y acompañamiento." />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:title" content="Consultoría en IA para empresas | Martin Baumann" />
+    <meta property="og:description" content="Automatizamos procesos y creamos agentes de IA para tu empresa: diagnóstico, implementación y acompañamiento." />
+    <meta property="og:image" content="https://www.martinbaumann.site/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Hacemos que tu empresa trabaje con IA. Consultoría de IA de Martin Baumann." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Consultoría en IA para empresas | Martin Baumann" />
+    <meta name="twitter:description" content="Automatizamos procesos y creamos agentes de IA para tu empresa: diagnóstico, implementación y acompañamiento." />
+    <meta name="twitter:image" content="https://www.martinbaumann.site/og-image.jpg" />
 
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Fuentes sin bloquear el primer pintado -->
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800;900&family=Playfair+Display:ital,wght@1,700;1,900&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800;900&family=Playfair+Display:ital,wght@1,700;1,900&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
     <link rel="stylesheet" href="styles.css" />
 
-    <!-- Oculta lo que anima la intro solo si hay JS y movimiento permitido; script.js lo libera -->
-    <script>
-      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        document.documentElement.classList.add("motion");
-        setTimeout(() => document.documentElement.classList.add("motion-ready"), 3000);
-      }
-    </script>
 
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        "name": "Martin Baumann — Consultoría e implementación de IA",
-        "url": "https://www.martinbaumann.site/",
-        "areaServed": "CL",
-        "serviceType": ["Consultoría en inteligencia artificial", "Automatización de procesos", "Agentes de IA"],
-        "founder": {
-          "@type": "Person",
-          "name": "Martin Baumann",
-          "sameAs": [
-            "https://instagram.com/martinbaumann_",
-            "https://www.tiktok.com/@martinbaumann_",
-            "https://www.youtube.com/@martinbaumann1",
-            "https://www.linkedin.com/in/martin-baumann-064b62186/"
-          ]
-        }
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://www.martinbaumann.site/#website",
+            "url": "https://www.martinbaumann.site/",
+            "name": "Martin Baumann",
+            "inLanguage": "es-CL",
+            "publisher": { "@id": "https://www.martinbaumann.site/#person" }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://www.martinbaumann.site/#person",
+            "name": "Martin Baumann",
+            "url": "https://www.martinbaumann.site/",
+            "jobTitle": "Consultor de inteligencia artificial",
+            "worksFor": { "@type": "Organization", "name": "WESO", "url": "https://weso.ai/" },
+            "knowsAbout": ["Inteligencia artificial", "Agentes de IA", "Automatización de procesos", "Growth", "Startups"],
+            "sameAs": [
+              "https://www.instagram.com/martinbaumann_/",
+              "https://www.tiktok.com/@martinbaumann_",
+              "https://www.youtube.com/@martinbaumann1",
+              "https://www.linkedin.com/in/martin-baumann-064b62186/"
+            ]
+          },
+          {
+            "@type": "ProfessionalService",
+            "@id": "https://www.martinbaumann.site/#service",
+            "name": "Martin Baumann — Consultoría e implementación de IA",
+            "url": "https://www.martinbaumann.site/",
+            "image": "https://www.martinbaumann.site/og-image.jpg",
+            "description": "Consultoría e implementación de inteligencia artificial para empresas: diagnóstico de procesos, automatizaciones, agentes de IA y acompañamiento.",
+            "founder": { "@id": "https://www.martinbaumann.site/#person" },
+            "areaServed": { "@type": "Country", "name": "Chile" },
+            "availableLanguage": "es",
+            "knowsAbout": ["Consultoría en inteligencia artificial", "Automatización de procesos con IA", "Agentes de IA para empresas"],
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Programa IA en tres etapas",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Diagnóstico de IA",
+                    "description": "Mapa de procesos, 3 a 5 oportunidades priorizadas por impacto y plan de implementación con costos y plazos."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Implementación de automatizaciones y agentes de IA",
+                    "description": "Automatizaciones o agentes de IA en producción, conectados a las herramientas de la empresa, con capacitación al equipo."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Acompañamiento mensual",
+                    "description": "Reporte de horas y costos ahorrados, mejoras continuas y soporte directo."
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://www.martinbaumann.site/#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "¿Qué hace una consultoría de IA?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Revisamos cómo trabaja tu equipo, encontramos qué tareas se pueden automatizar o delegar a agentes de IA, y lo implementamos con las herramientas que ya usas. Después medimos cuánto tiempo y plata te ahorra." }
+              },
+              {
+                "@type": "Question",
+                "name": "¿Qué procesos se pueden automatizar con IA?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Los más comunes están en ventas (seguimiento de leads y CRM), atención (responder WhatsApp y correo), operaciones (coordinación, agendamiento y asignación de tareas) y reportes (números del negocio que llegan solos cada semana)." }
+              },
+              {
+                "@type": "Question",
+                "name": "¿Qué es un agente de IA?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Es un asistente que no solo responde: también ejecuta tareas. Puede atender clientes, clasificar solicitudes o coordinar trabajo, siguiendo reglas claras y derivando a una persona cuando hace falta." }
+              },
+              {
+                "@type": "Question",
+                "name": "¿Necesito un equipo técnico para implementar IA?",
+                "acceptedAnswer": { "@type": "Answer", "text": "No. Nosotros construimos e integramos las soluciones. Tu equipo aprende a usarlas en la capacitación que es parte de la implementación." }
+              },
+              {
+                "@type": "Question",
+                "name": "¿Cuánto cuesta implementar IA en una empresa?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Depende del alcance. Por eso partimos con un diagnóstico: termina con un plan de implementación con costos y plazos, así sabes cuánto cuesta antes de decidir." }
+              },
+              {
+                "@type": "Question",
+                "name": "¿Cuánto tiempo toma ver resultados?",
+                "acceptedAnswer": { "@type": "Answer", "text": "El diagnóstico toma las primeras dos semanas. La primera solución queda funcionando entre las semanas 3 y 8, y desde ahí medimos los resultados mes a mes." }
+              }
+            ]
+          }
+        ]
       }
     </script>
   </head>
@@ -76,7 +178,7 @@
       <section class="hero" id="inicio">
         <div class="hero-copy">
           <p class="label" data-intro>Consultoría e implementación de IA</p>
-          <h1 class="hero-title" data-split="mask">Hacemos que tu empresa trabaje con <em>IA</em>.</h1>
+          <h1 class="hero-title" data-intro>Hacemos que tu empresa trabaje con <em>IA</em>.</h1>
           <p class="hero-sub" data-intro>
             Encontramos dónde la IA te ahorra más tiempo y plata, la implementamos con tu equipo y medimos el resultado.
           </p>
@@ -288,9 +390,65 @@
         </div>
       </section>
 
+      <!-- Preguntas frecuentes (el mismo texto va en el JSON-LD FAQPage del head) -->
+      <section class="section" id="preguntas">
+        <header class="section-head" data-reveal>
+          <p class="label">05 — Preguntas</p>
+          <h2>Preguntas frecuentes sobre IA en tu empresa.</h2>
+        </header>
+
+        <div class="faq" data-stagger>
+          <details>
+            <summary>¿Qué hace una consultoría de IA?</summary>
+            <p>
+              Revisamos cómo trabaja tu equipo, encontramos qué tareas se pueden automatizar o delegar a agentes de
+              IA, y lo implementamos con las herramientas que ya usas. Después medimos cuánto tiempo y plata te ahorra.
+            </p>
+          </details>
+          <details>
+            <summary>¿Qué procesos se pueden automatizar con IA?</summary>
+            <p>
+              Los más comunes están en ventas (seguimiento de leads y CRM), atención (responder WhatsApp y correo),
+              operaciones (coordinación, agendamiento y asignación de tareas) y reportes (números del negocio que llegan
+              solos cada semana).
+            </p>
+          </details>
+          <details>
+            <summary>¿Qué es un agente de IA?</summary>
+            <p>
+              Es un asistente que no solo responde: también ejecuta tareas. Puede atender clientes, clasificar
+              solicitudes o coordinar trabajo, siguiendo reglas claras y derivando a una persona cuando hace falta. Lo
+              explico en detalle en
+              <a href="https://www.youtube.com/watch?v=d4hlRIOba-Y" target="_blank" rel="noopener">este video</a>.
+            </p>
+          </details>
+          <details>
+            <summary>¿Necesito un equipo técnico para implementar IA?</summary>
+            <p>
+              No. Nosotros construimos e integramos las soluciones. Tu equipo aprende a usarlas en la capacitación que
+              es parte de la implementación.
+            </p>
+          </details>
+          <details>
+            <summary>¿Cuánto cuesta implementar IA en una empresa?</summary>
+            <p>
+              Depende del alcance. Por eso partimos con un diagnóstico: termina con un plan de implementación con
+              costos y plazos, así sabes cuánto cuesta antes de decidir.
+            </p>
+          </details>
+          <details>
+            <summary>¿Cuánto tiempo toma ver resultados?</summary>
+            <p>
+              El diagnóstico toma las primeras dos semanas. La primera solución queda funcionando entre las semanas 3 y
+              8, y desde ahí medimos los resultados mes a mes.
+            </p>
+          </details>
+        </div>
+      </section>
+
       <!-- Cierre -->
       <section class="closing" id="contacto">
-        <p class="label" data-reveal>05 — Contacto</p>
+        <p class="label" data-reveal>06 — Contacto</p>
         <h2 class="closing-title" data-closing>Hablemos.</h2>
         <p class="closing-sub" data-reveal>Cuéntame qué hace tu equipo a mano y te digo qué se puede automatizar.</p>
         <div class="hero-actions" data-reveal>

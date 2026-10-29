@@ -5,7 +5,6 @@ const WHATSAPP_URL =
   "https://wa.me/56999444522?text=" +
   encodeURIComponent("Hola Martin, quiero conversar sobre un diagnóstico de IA para mi empresa.");
 
-const root = document.documentElement;
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 function setupLinks() {
@@ -81,10 +80,7 @@ function splitWords(el) {
 
 function setupMotion() {
   const { gsap, ScrollTrigger, Lenis } = window;
-  if (reduceMotion || !gsap || !ScrollTrigger) {
-    root.classList.add("motion-ready");
-    return;
-  }
+  if (reduceMotion || !gsap || !ScrollTrigger) return;
   gsap.registerPlugin(ScrollTrigger);
 
   // Scroll suave
@@ -104,15 +100,8 @@ function setupMotion() {
   }
 
   document.querySelectorAll("[data-split]").forEach(splitWords);
-  root.classList.add("motion-ready");
 
-  // Intro de la portada
-  const intro = gsap.timeline({ defaults: { ease: "expo.out", duration: 1.3 } });
-  intro
-    .from(".hero-title .wi", { yPercent: 110, stagger: 0.05 })
-    .from("[data-intro]", { y: 24, autoAlpha: 0, stagger: 0.1, duration: 1.1 }, 0.4);
-
-  // Portada al bajar: el título se aleja y se desvanece
+  // La intro de la portada está en styles.css. Portada al bajar: el título se aleja y se desvanece
   gsap.to(".hero-copy", {
     y: -80,
     autoAlpha: 0.15,
