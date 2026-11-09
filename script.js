@@ -11,7 +11,15 @@ const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").match
 // Medición con Vercel Web Analytics. Los eventos se ven en Vercel → Analytics → Events.
 window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
 function track(name, data) {
+  // Evento personalizado (solo se lee en el plan Pro de Vercel)
   try { window.va("event", { name, data }); } catch (e) {}
+  // Copia gratis: una "visita" a una ruta interna /_evento/... que el plan Hobby sí cuenta.
+  // El panel la separa de las visitas reales filtrando las rutas que empiezan con /_evento.
+  try {
+    const parts = [name, ...Object.values(data || {})].map((v) => String(v).toLowerCase().replace(/[^a-z0-9-]+/g, "-"));
+    const path = "/_evento/" + parts.join("/");
+    window.va("pageview", { route: "/_evento/" + parts[0], path });
+  } catch (e) {}
 }
 const whereIs = (el) => (el.closest(".mobile-cta") ? "boton-fijo" : el.closest(".topbar") ? "barra" : (el.closest("section") || {}).id || "otro");
 
