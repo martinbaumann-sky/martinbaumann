@@ -247,7 +247,19 @@ function setupMotion() {
   window.addEventListener("load", () => ScrollTrigger.refresh());
 }
 
+// Origen de la visita (por ejemplo ?utm_source=instagram), una vez por sesión del navegador
+function trackOrigin() {
+  const src = utmParams().utm_source;
+  if (!src) return;
+  try {
+    if (sessionStorage.getItem("mb_origen") === src) return;
+    sessionStorage.setItem("mb_origen", src);
+  } catch (e) {}
+  track("origen", { fuente: src });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  trackOrigin();
   setupLinks();
   setupCalendly();
   setupTopbar();
