@@ -1,18 +1,43 @@
-// Links de contacto: pega tu link en CALENDLY_URL y todos los botones "Agendar" lo usarán.
-// Mientras esté vacío, esos botones abren WhatsApp.
-const CALENDLY_URL = "";
+// Links de contacto: pega tu link de Calendly en CALENDLY_URL (por ejemplo "https://calendly.com/tu-usuario/30min").
+// Con link: el calendario aparece dentro de la página, en #agenda, y los botones "Agendar" bajan hasta él.
+// Sin link: los botones "Agendar" abren WhatsApp.
+const CALENDLY_URL = "https://calendly.com/martin_baumann/30min";
 const WHATSAPP_URL =
   "https://wa.me/56999444522?text=" +
-  encodeURIComponent("Hola Martin, quiero conversar sobre un diagnóstico de IA para mi empresa.");
+  encodeURIComponent("Hola Martin, vi tu web y quiero conversar sobre IA para mi empresa.");
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 function setupLinks() {
   document.querySelectorAll("[data-cta]").forEach((link) => {
-    link.href = link.dataset.cta === "calendly" && CALENDLY_URL ? CALENDLY_URL : WHATSAPP_URL;
+    if (link.dataset.cta === "calendly" && CALENDLY_URL) {
+      link.href = "#agenda";
+      return;
+    }
+    link.href = WHATSAPP_URL;
     link.target = "_blank";
     link.rel = "noopener";
   });
+}
+
+// Calendario de Calendly dentro de la página (solo si hay link)
+function setupCalendly() {
+  const slot = document.querySelector("#agenda");
+  if (!slot || !CALENDLY_URL) return;
+  const url = new URL(CALENDLY_URL);
+  url.searchParams.set("hide_gdpr_banner", "1");
+  url.searchParams.set("background_color", "f7f5f2");
+  url.searchParams.set("text_color", "111111");
+  url.searchParams.set("primary_color", "111111");
+  const widget = document.createElement("div");
+  widget.className = "calendly-inline-widget";
+  widget.dataset.url = url.toString();
+  slot.appendChild(widget);
+  slot.hidden = false;
+  const script = document.createElement("script");
+  script.src = "https://assets.calendly.com/assets/external/widget.js";
+  script.async = true;
+  document.body.appendChild(script);
 }
 
 // Barra superior: fondo al bajar, se esconde al bajar y vuelve al subir
@@ -189,6 +214,7 @@ function setupMotion() {
 
 document.addEventListener("DOMContentLoaded", () => {
   setupLinks();
+  setupCalendly();
   setupTopbar();
   setupMobileCta();
   setupMotion();

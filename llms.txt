@@ -1,25 +1,29 @@
-# Martin Baumann — Consultoría e implementación de IA
+# Martin Baumann — Asesoría de IA para empresas
 
-> Consultoría e implementación de inteligencia artificial para empresas en Chile. Encontramos dónde la IA le ahorra más tiempo y plata a una empresa, la implementamos con su equipo y medimos el resultado.
+> Asesoría mensual 1:1 de inteligencia artificial para empresas en Chile que ya venden. Martin deja la IA funcionando en el marketing, las ventas o la operación de la empresa, con el equipo usándola. Funciona como tener un Head of Growth & AI sin contratarlo.
 
 ## Para quién
 
-Empresas que ya venden y pierden horas en tareas repetitivas:
+Empresas chicas y medianas que ya venden, tienen equipo y pierden horas en tareas repetitivas:
 
 - Ventas: seguimiento de leads, propuestas y CRM al día sin actualizarlo a mano.
 - Atención: un agente que responde WhatsApp y correo a toda hora, y deriva a una persona cuando hace falta.
 - Operaciones: coordinación, agendamiento y asignación de tareas que hoy se hacen por chat.
 - Reportes: los números del negocio llegan solos cada semana.
 
-## Oferta: Programa IA en tres etapas
+No es para ideas que todavía no venden.
 
-1. Diagnóstico (semanas 1–2): mapa de procesos, 3 a 5 oportunidades priorizadas por impacto y plan de implementación con costos y plazos.
-2. Implementación (semanas 3–8): automatizaciones o agentes de IA en producción, conectados a las herramientas de la empresa, con capacitación al equipo.
-3. Acompañamiento (mensual): reporte de horas y costos ahorrados, mejoras continuas y soporte directo.
+## Oferta: asesoría mensual, sin fecha de término
+
+1. Mes 1, diagnóstico y primer sistema: revisión de cómo trabaja el equipo, mapa de oportunidades priorizadas por impacto y el primer sistema funcionando en 30 días.
+2. Cada semana, sesión 1:1: automatizaciones y agentes de IA construidos y ajustados junto al equipo, conectados a las herramientas que ya usa.
+3. Siempre, WhatsApp directo con Martin de lunes a viernes en horario hábil, con una revisión mensual de lo que cambió.
+
+El precio es mensual y depende del alcance; se define en una llamada de 30 minutos.
 
 ## Quién es Martin Baumann
 
-Head of Growth & AI en WESO (operaciones con IA para servicios de seguros) y cofundador de PichangApp, SkyTerra y SkyEdits. Walty también está entre sus proyectos. Explica IA en simple en YouTube.
+Head of Growth & AI en WESO (operaciones con IA para servicios de seguros), CMO y cofundador de Walty (beneficios para comunidades) y cofundador de PichangApp, SkyTerra y SkyEdits. Explica IA en simple en YouTube.
 
 ## Links
 
