@@ -8,8 +8,23 @@ const WHATSAPP_URL =
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+// Medición con Vercel Web Analytics. Los eventos se ven en Vercel → Analytics → Events.
+window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+function track(name, data) {
+  try { window.va("event", { name, data }); } catch (e) {}
+}
+const whereIs = (el) => (el.closest(".mobile-cta") ? "boton-fijo" : el.closest(".topbar") ? "barra" : (el.closest("section") || {}).id || "otro");
+
+// Pasa los utm_ de la visita (por ejemplo, utm_source=instagram) a Calendly
+function utmParams() {
+  const out = {};
+  new URLSearchParams(location.search).forEach((v, k) => { if (k.startsWith("utm_")) out[k] = v; });
+  return out;
+}
+
 function setupLinks() {
   document.querySelectorAll("[data-cta]").forEach((link) => {
+    link.addEventListener("click", () => track("clic_cta", { tipo: link.dataset.cta === "calendly" && CALENDLY_URL ? "agendar" : "whatsapp", lugar: whereIs(link) }));
     if (link.dataset.cta === "calendly" && CALENDLY_URL) {
       link.href = "#agenda";
       return;
@@ -29,6 +44,7 @@ function setupCalendly() {
   url.searchParams.set("background_color", "f7f5f2");
   url.searchParams.set("text_color", "111111");
   url.searchParams.set("primary_color", "111111");
+  Object.entries(utmParams()).forEach(([k, v]) => url.searchParams.set(k, v));
   const widget = document.createElement("div");
   widget.className = "calendly-inline-widget";
   widget.dataset.url = url.toString();
@@ -38,6 +54,19 @@ function setupCalendly() {
   script.src = "https://assets.calendly.com/assets/external/widget.js";
   script.async = true;
   document.body.appendChild(script);
+
+  // Eventos de Calendly: ver el calendario, elegir hora y agendar
+  window.addEventListener("message", (e) => {
+    if (!/calendly\.com$/.test(new URL(e.origin).hostname) || !e.data || !e.data.event) return;
+    if (e.data.event === "calendly.date_and_time_selected") track("calendly_hora_elegida");
+    if (e.data.event === "calendly.event_scheduled") track("agendamiento");
+  });
+  if ("IntersectionObserver" in window) {
+    const seen = new IntersectionObserver((entries) => {
+      if (entries.some((en) => en.isIntersecting)) { track("calendly_visto"); seen.disconnect(); }
+    }, { threshold: 0.3 });
+    seen.observe(slot);
+  }
 }
 
 // Barra superior: fondo al bajar, se esconde al bajar y vuelve al subir
@@ -46,7 +75,6 @@ function setupTopbar() {
   let lastY = 0;
   const update = (y) => {
     topbar.classList.toggle("is-scrolled", y > 8);
-    topbar.classList.toggle("is-hidden", y > 400 && y > lastY);
     lastY = y;
   };
   update(window.scrollY);
@@ -57,16 +85,15 @@ function setupTopbar() {
 function setupMobileCta() {
   const cta = document.querySelector(".mobile-cta");
   if (!cta || !("IntersectionObserver" in window)) return;
-  const inView = { hero: true, closing: false };
-  const update = () => cta.classList.toggle("is-visible", !inView.hero && !inView.closing);
+  // Se esconde mientras haya otro botón de agendar en pantalla (portada, cajas intermedias y cierre)
+  const targets = [document.querySelector(".hero-actions"), ...document.querySelectorAll(".cta-inline"), document.querySelector("#contacto")].filter(Boolean);
+  const visible = new Set(targets);
+  const update = () => cta.classList.toggle("is-visible", visible.size === 0);
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      inView[entry.target.id === "contacto" ? "closing" : "hero"] = entry.isIntersecting;
-    });
+    entries.forEach((entry) => (entry.isIntersecting ? visible.add(entry.target) : visible.delete(entry.target)));
     update();
   });
-  observer.observe(document.querySelector(".hero-actions"));
-  observer.observe(document.querySelector("#contacto"));
+  targets.forEach((t) => observer.observe(t));
 }
 
 // Envuelve cada palabra en <span class="w"> conservando <em> y otros tags
@@ -160,7 +187,7 @@ function setupMotion() {
 
   gsap.utils.toArray("[data-stagger]").forEach((group) => {
     gsap.from(group.children, {
-      y: 60,
+      y: 40,
       autoAlpha: 0,
       duration: 1.2,
       ease: "expo.out",

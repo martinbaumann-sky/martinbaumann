@@ -341,10 +341,11 @@ h1 em {
   background: rgba(255, 255, 255, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.95);
   box-shadow: var(--shadow);
-  transition: transform 0.5s var(--ease), background-color 0.3s;
+  /* translate (no transform): la animación de entrada usa transform y no deben pelear */
+  transition: translate 0.5s var(--ease), background-color 0.3s;
 }
 .area:hover {
-  transform: translateY(-4px);
+  translate: 0 -4px;
   background: var(--blanco);
 }
 .area-num {
@@ -468,7 +469,7 @@ h1 em {
   align-items: center;
   justify-content: space-between;
   gap: 16px 24px;
-  margin-top: 28px;
+  margin-top: clamp(32px, 4vw, 48px);
   padding: 24px 32px;
   border-radius: var(--radius);
   border: 1px dashed var(--gris);
@@ -970,5 +971,54 @@ h1 em {
 @media (max-width: 640px) {
   .calendly-inline-widget {
     height: 900px;
+  }
+}
+
+/* Microtexto bajo los botones: quita el riesgo de agendar */
+.cta-micro {
+  flex-basis: 100%;
+  margin: 2px 0 0;
+  font-size: 14px;
+  color: var(--gris-texto);
+}
+.closing .cta-micro {
+  text-align: center;
+}
+
+/* Cierre: cómo empezamos, en 3 pasos */
+.steps {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  width: 100%;
+  max-width: 920px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  text-align: left;
+}
+.steps li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 18px 20px;
+  border: 1px solid var(--gris);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.55);
+}
+.steps b {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 900;
+  font-size: 30px;
+  line-height: 1;
+}
+.steps span {
+  font-size: 16px;
+  color: #2a2a2a;
+}
+@media (max-width: 760px) {
+  .steps {
+    grid-template-columns: 1fr;
   }
 }
