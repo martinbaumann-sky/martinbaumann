@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recursos | Martin Baumann</title>
+    <meta name="description" content="Guías y archivos de mis videos para que los uses con tu propia IA." />
+    <link rel="canonical" href="https://www.martinbaumann.site/recursos/" />
+    <meta name="author" content="Martin Baumann" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#F7F5F2" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_LA" />
+    <meta property="og:site_name" content="Martin Baumann" />
+    <meta property="og:url" content="https://www.martinbaumann.site/recursos/" />
+    <meta property="og:title" content="Recursos | Martin Baumann" />
+    <meta property="og:description" content="Guías y archivos de mis videos para que los uses con tu propia IA." />
+    <meta property="og:image" content="https://www.martinbaumann.site/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800;900&family=Playfair+Display:ital,wght@1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+    <style>
+      .resources {
+        display: grid;
+        gap: 16px;
+      }
+      .resource {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 24px;
+        align-items: center;
+        padding: clamp(20px, 3vw, 32px);
+        background: var(--blanco);
+        border: 1px solid var(--gris);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+      }
+      .resource-tag {
+        display: inline-block;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--carbon);
+        background: var(--salvia);
+        padding: 4px 10px;
+        border-radius: 999px;
+        margin-bottom: 12px;
+      }
+      .resource h3 {
+        font-size: clamp(22px, 2.4vw, 28px);
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        margin: 0 0 8px;
+      }
+      .resource p {
+        color: var(--gris-texto);
+        margin: 0;
+        max-width: 60ch;
+        line-height: 1.55;
+      }
+      .resource-meta {
+        margin-top: 10px !important;
+        font-size: 14px;
+      }
+      .resource-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 20px;
+      }
+      .resource-video {
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+        gap: clamp(20px, 3vw, 40px);
+      }
+      .resource-thumb {
+        position: relative;
+        display: block;
+        border-radius: calc(var(--radius) - 8px);
+        overflow: hidden;
+        aspect-ratio: 16 / 9;
+        background: var(--niebla);
+      }
+      .resource-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.6s var(--ease);
+      }
+      .resource-thumb:hover img {
+        transform: scale(1.03);
+      }
+      .resource-video {
+        align-items: start;
+      }
+      .resource p.resource-from {
+        font-family: var(--serif);
+        font-style: italic;
+        font-weight: 700;
+        font-size: 18px;
+        color: var(--carbon);
+        margin: 0 0 6px;
+      }
+      #hermes:target {
+        border-color: var(--salvia);
+      }
+      @media (max-width: 820px) {
+        .resource,
+        .resource-video {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <a class="skip" href="#contenido">Saltar al contenido</a>
+
+    <header class="topbar">
+      <a href="/" class="brand">Martin Baumann</a>
+      <span class="topbar-line" aria-hidden="true"></span>
+      <nav class="topbar-nav" aria-label="Principal">
+        <a href="/#oferta">Oferta</a>
+        <a href="/#proyectos">Proyectos</a>
+        <a href="/#youtube">YouTube</a>
+        <a href="/recursos/" aria-current="page">Recursos</a>
+      </nav>
+    </header>
+
+    <main id="contenido">
+      <section class="section" id="recursos">
+        <header class="section-head">
+          <p class="label">Recursos</p>
+          <h2>Los archivos de mis videos.</h2>
+          <p>Descárgalos y úsalos con tu propia IA.</p>
+        </header>
+
+        <div class="resources">
+          <!-- Recurso anclado a un video: el video es la acción principal y la guía viene después.
+               Cuando el video esté publicado, pega su link en data-video (y se activa solo). -->
+          <article class="resource resource-video" id="hermes" data-video="">
+            <a class="resource-thumb" data-video-link href="https://www.youtube.com/@martinbaumann1" target="_blank" rel="noopener">
+              <img
+                src="/recursos/macs-viejos-agentes-ia.webp"
+                alt="Miniatura del video Macs viejos para agentes IA"
+                width="1280"
+                height="720"
+                loading="lazy"
+              />
+              <span class="video-play" aria-hidden="true">▶</span>
+            </a>
+            <div class="resource-body">
+              <span class="resource-tag">Del video</span>
+              <p class="resource-from">Macs viejos para agentes IA</p>
+              <h3>Configura Hermes con ChatGPT y Telegram</h3>
+              <p>
+                Mira primero el video: ahí te muestro cómo dejo un computador viejo funcionando como agente. Después
+                adjunta esta guía a ChatGPT o Codex y te lleva paso a paso: instala Hermes, lo conecta a tu cuenta de
+                ChatGPT y te deja hablarle desde Telegram.
+              </p>
+              <div class="resource-actions">
+                <a class="btn btn-dark" data-video-link href="https://www.youtube.com/@martinbaumann1" target="_blank" rel="noopener">
+                  <span data-video-label>Ver el video ↗</span>
+                </a>
+                <a
+                  class="btn btn-light"
+                  href="/recursos/configura-hermes-chatgpt-telegram.md"
+                  download="Configura Hermes con ChatGPT y Telegram.md"
+                  >Descargar la guía ↓</a
+                >
+              </div>
+              <p class="resource-meta">Archivo Markdown (.md) · Úsalo con tus propias cuentas.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span class="brand">Martin Baumann</span>
+      <span class="topbar-line" aria-hidden="true"></span>
+      <nav class="footer-nav" aria-label="Redes">
+        <a href="https://instagram.com/martinbaumann_" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@martinbaumann_" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://www.youtube.com/@martinbaumann1" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.linkedin.com/in/martin-baumann-064b62186/" target="_blank" rel="noopener">LinkedIn</a>
+      </nav>
+    </footer>
+
+    <script>
+      // Cada recurso anclado a un video: si data-video tiene el link, la miniatura y el botón llevan al video
+      // (si está vacío, llevan al canal).
+      document.querySelectorAll("[data-video]").forEach((card) => {
+        const url = card.dataset.video.trim();
+        if (url) card.querySelectorAll("[data-video-link]").forEach((a) => (a.href = url));
+      });
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+  </body>
+</html>
