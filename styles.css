@@ -957,6 +957,7 @@ h1 em {
 
 /* Calendly integrado en el cierre */
 .calendly-slot {
+  scroll-margin-top: 88px;
   width: min(100%, 1000px);
   margin: 48px auto 0;
   border-radius: var(--radius);
@@ -964,13 +965,106 @@ h1 em {
   background: var(--blanco);
   box-shadow: var(--shadow);
 }
-.calendly-inline-widget {
+.calendly-embed {
   min-width: 300px;
   height: 720px;
 }
 @media (max-width: 640px) {
-  .calendly-inline-widget {
+  .calendly-embed {
     height: 900px;
+  }
+}
+
+/* Preguntas antes de agendar */
+.prebook {
+  padding: clamp(24px, 5vw, 56px);
+  text-align: left;
+}
+.prebook[hidden],
+.prebook-calendar[hidden] {
+  display: none;
+}
+.prebook-title {
+  margin: 8px 0;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.1;
+}
+.prebook-sub {
+  margin: 0 0 28px;
+  max-width: 560px;
+  color: var(--gris-texto);
+}
+.prebook-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 20px;
+  margin-bottom: 28px;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+.field-wide {
+  grid-column: 1 / -1;
+}
+.field span {
+  font-size: 14px;
+  font-weight: 500;
+}
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 12px 14px;
+  font: inherit;
+  font-size: 16px;
+  color: var(--carbon);
+  background: var(--marfil);
+  border: 1px solid var(--gris);
+  border-radius: 12px;
+  transition: border-color 0.2s var(--ease), background-color 0.2s var(--ease);
+}
+.field textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+.field input::placeholder,
+.field textarea::placeholder {
+  color: #9a9a97;
+}
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--carbon);
+  background: var(--blanco);
+}
+.prebook .btn {
+  border: 0;
+  cursor: pointer;
+  font-family: inherit;
+}
+.prebook-back {
+  display: block;
+  margin: 16px 20px 0;
+  padding: 6px 4px;
+  font: inherit;
+  font-size: 14px;
+  color: var(--gris-texto);
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.prebook-back:hover {
+  color: var(--carbon);
+}
+@media (max-width: 640px) {
+  .prebook-grid {
+    grid-template-columns: 1fr;
   }
 }
 

@@ -497,7 +497,7 @@
         <h2 class="closing-title" data-closing>Hablemos.</h2>
         <p class="closing-sub" data-reveal>Agenda una llamada de 30 minutos: cuéntame qué haces a mano todos los meses y te digo qué se puede automatizar.</p>
         <ol class="steps" data-reveal>
-          <li><b>1</b><span>Agendas una llamada gratis de 30 minutos.</span></li>
+          <li><b>1</b><span>Me cuentas qué haces y agendas una llamada gratis de 30 minutos.</span></li>
           <li><b>2</b><span>Te digo por dónde partiría en tu empresa.</span></li>
           <li><b>3</b><span>Si calza, partimos con una sesión para ordenar tus tareas.</span></li>
         </ol>
@@ -506,8 +506,57 @@
           <a href="#" class="btn btn-light" data-cta="whatsapp">WhatsApp</a>
           <p class="cta-micro">Gratis · 30 minutos · Si no calza, te lo digo.</p>
         </div>
-        <!-- Calendly integrado: aparece solo cuando CALENDLY_URL tiene un link (script.js) -->
-        <div class="calendly-slot" id="agenda" hidden></div>
+        <!-- Agenda: primero unas preguntas cortas y después el calendario de Calendly con las respuestas (script.js).
+             Aparece solo cuando CALENDLY_URL tiene un link. -->
+        <div class="calendly-slot" id="agenda" hidden>
+          <form class="prebook" id="prebook">
+            <p class="label">Antes de agendar</p>
+            <h3 class="prebook-title">Cuéntame un poco de ti</h3>
+            <p class="prebook-sub">Así llego a la llamada sabiendo de qué vamos a hablar y la aprovechamos mejor. Es un minuto.</p>
+            <div class="prebook-grid">
+              <label class="field">
+                <span>Nombre</span>
+                <input name="nombre" required maxlength="80" autocomplete="name" />
+              </label>
+              <label class="field">
+                <span>Correo</span>
+                <input type="email" name="email" required maxlength="120" autocomplete="email" />
+              </label>
+              <label class="field field-wide">
+                <span>¿Qué hace tu empresa o proyecto?</span>
+                <input name="empresa" required maxlength="200" placeholder="Por ejemplo: distribuidora de alimentos en Santiago" />
+              </label>
+              <label class="field">
+                <span>¿Cuántas personas trabajan ahí?</span>
+                <select name="tamano" required>
+                  <option value="" selected disabled>Elige una opción</option>
+                  <option>Solo yo</option>
+                  <option>2 a 10</option>
+                  <option>11 a 50</option>
+                  <option>Más de 50</option>
+                </select>
+              </label>
+              <label class="field">
+                <span>¿Ya usan IA en el trabajo?</span>
+                <select name="ia" required>
+                  <option value="" selected disabled>Elige una opción</option>
+                  <option>Todavía no</option>
+                  <option>Un poco (ChatGPT u otras)</option>
+                  <option>Sí, en algunos procesos</option>
+                </select>
+              </label>
+              <label class="field field-wide">
+                <span>¿Qué te gustaría resolver o automatizar?</span>
+                <textarea name="busca" required minlength="15" maxlength="600" rows="4" placeholder="Por ejemplo: todos los meses armamos a mano el reporte de ventas y nos toma dos días"></textarea>
+              </label>
+            </div>
+            <button type="submit" class="btn btn-dark">Ver horarios disponibles →</button>
+          </form>
+          <div class="prebook-calendar" hidden>
+            <button type="button" class="prebook-back">← Cambiar mis respuestas</button>
+            <div class="calendly-embed"></div>
+          </div>
+        </div>
       </section>
     </main>
 

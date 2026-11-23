@@ -43,25 +43,59 @@ function setupLinks() {
   });
 }
 
-// Calendario de Calendly dentro de la página (solo si hay link)
+// Agenda dentro de la página (solo si hay link): primero unas preguntas cortas y
+// después el calendario de Calendly, con nombre y correo ya puestos y las respuestas
+// en la primera pregunta del evento (a1). Para que las respuestas te lleguen, el evento
+// de Calendly necesita una pregunta de texto largo como primera pregunta personalizada.
 function setupCalendly() {
   const slot = document.querySelector("#agenda");
   if (!slot || !CALENDLY_URL) return;
+  const form = slot.querySelector("#prebook");
+  const calendar = slot.querySelector(".prebook-calendar");
+  const embed = slot.querySelector(".calendly-embed");
   const url = new URL(CALENDLY_URL);
   url.searchParams.set("hide_gdpr_banner", "1");
   url.searchParams.set("background_color", "f7f5f2");
   url.searchParams.set("text_color", "111111");
   url.searchParams.set("primary_color", "111111");
   Object.entries(utmParams()).forEach(([k, v]) => url.searchParams.set(k, v));
-  const widget = document.createElement("div");
-  widget.className = "calendly-inline-widget";
-  widget.dataset.url = url.toString();
-  slot.appendChild(widget);
   slot.hidden = false;
-  const script = document.createElement("script");
-  script.src = "https://assets.calendly.com/assets/external/widget.js";
-  script.async = true;
-  document.body.appendChild(script);
+
+  const calendlyReady = new Promise((resolve) => {
+    const script = document.createElement("script");
+    script.src = "https://assets.calendly.com/assets/external/widget.js";
+    script.async = true;
+    script.onload = resolve;
+    document.body.appendChild(script);
+  });
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const d = Object.fromEntries(new FormData(form).entries());
+    const a1 = [
+      `Empresa o proyecto: ${d.empresa.trim()}`,
+      `Personas: ${d.tamano}`,
+      `Uso de IA: ${d.ia}`,
+      `Qué quiere resolver: ${d.busca.trim()}`,
+    ].join("\n");
+    track("precalificacion_enviada", { tamano: d.tamano, ia: d.ia });
+    form.hidden = true;
+    calendar.hidden = false;
+    slot.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+    // encodeURIComponent deja los espacios como %20; con "+" Calendly mostraría "Juan+Pérez"
+    const answers = { name: d.nombre.trim(), email: d.email.trim(), a1 };
+    const withAnswers = url.toString().replace(/\+/g, "%20") + "&" +
+      Object.entries(answers).map(([k, v]) => `${k}=${encodeURIComponent(v)}`).join("&");
+    await calendlyReady;
+    embed.innerHTML = "";
+    window.Calendly.initInlineWidget({ url: withAnswers, parentElement: embed });
+  });
+
+  slot.querySelector(".prebook-back").addEventListener("click", () => {
+    calendar.hidden = true;
+    form.hidden = false;
+    form.querySelector("input, textarea").focus();
+  });
 
   // Eventos de Calendly: ver el calendario, elegir hora y agendar
   window.addEventListener("message", (e) => {
